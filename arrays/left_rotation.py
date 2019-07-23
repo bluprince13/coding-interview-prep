@@ -1,7 +1,5 @@
 # http://hr.gs/16xx
 
-import unittest
-
 def rotLeft(a, d):
 
     # don't want to do each rotation manually as that'd be O(n * d)
@@ -30,6 +28,8 @@ def rotLeft(a, d):
         result[new_idx] = num
     
     return result
+
+import unittest
 
 
 class MyTest(unittest.TestCase):

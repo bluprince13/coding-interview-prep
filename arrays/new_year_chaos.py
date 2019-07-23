@@ -1,7 +1,5 @@
 # http://hr.gs/fccdad
 
-import unittest
-
 def minimumBribes(q):
 
     # let's look at the example 
@@ -61,6 +59,8 @@ def minimumBribes(q):
     
     print(result)
     return result
+
+import unittest
 
 class MyTest(unittest.TestCase):
     def test_1(self):

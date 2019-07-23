@@ -1,7 +1,5 @@
 # https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 
-import unittest
-
 # Sample Input
 # 5 3
 # 1 2 100
@@ -31,6 +29,8 @@ def arrayManipulation(n, queries):
             maximum = counter
 
     return maximum
+
+import unittest
 
 class MyTest(unittest.TestCase):
     def test_1(self):
