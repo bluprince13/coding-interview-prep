@@ -1,4 +1,4 @@
-# https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&
+# https://www.hackerrank.com/challenges/ctci-ransom-note/problem
 
 def checkMagazine(magazine, note):
     # brute force approach:
