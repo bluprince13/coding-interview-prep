@@ -40,6 +40,7 @@ def substrCount(n, s):
 
     for idx, letter in enumerate(s):
         if letter == last_letter:
+            # these two lines are pretty much the entire logic for same_count
             streak += 1
             same_count += streak - 1
 
@@ -54,8 +55,6 @@ def substrCount(n, s):
                 symmetry_count += 1
         else:
             if idx >= 2:
-                last_last_letter = s[idx - 2]
-
                 # detect a 'middle' we have just passed
                 # aMx - at x == a,
                 #   set the passed middle flag to true
@@ -63,6 +62,7 @@ def substrCount(n, s):
                 # abx - at x != a,
                 #   set the passed middle flag to false
                 #   set the previous streak to 0
+                last_last_letter = s[idx - 2]
                 if last_last_letter == letter:
                     passed_middle = True
                     symmetry_count += 1
@@ -71,9 +71,9 @@ def substrCount(n, s):
                     previous_streak = 0
 
             if idx < n - 1:
-                next_letter = s[idx + 1]
                 # if a 'middle' is coming up, store the current streak value
                 # aaxMa - at x == a, store the current streak value of 3
+                next_letter = s[idx + 1]
                 if last_letter == next_letter:
                     previous_streak = streak
 
