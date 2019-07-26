@@ -28,7 +28,7 @@ def substrCount(n, s):
     #   note that substrings aba and bab share two letters!!
 
     # same_count is fairly trivial
-    # symmetry_count requiresa a fair bit of logic though
+    # symmetry_count requires a fair bit of logic though
 
     streak = 1
     last_letter = ""
