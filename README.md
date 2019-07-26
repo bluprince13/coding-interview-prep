@@ -8,4 +8,5 @@ Links to the challenge (e.g. on [HackerRank](https://www.hackerrank.com)) are
 provided at the top of each file. Each file contains my solution, comments,
 and also unit tests to check the solution.
 
-Solutions may not be in a polished state.
+Solutions may not be in a polished state. However, if you want me to explain a
+particular solution better, just ask me. :)
