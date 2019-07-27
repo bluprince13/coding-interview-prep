@@ -20,7 +20,12 @@ def commonChild(s1, s2):
             result = 1 + lcs(s1, s2, m-1, n-1)
         # case 1: last letters don't match
         else:
-            result = max(lcs(s1, s2, m, n-1), lcs(s1, s2, m-1, n))
+            temp1 = lcs(s1, s2, m, n-1) 
+            temp2 = lcs(s1, s2, m-1, n)
+            if temp1 > temp2:
+                result = temp1
+            else:
+                result = temp2
         arr[m][n] = result
         return result
     return lcs(s1, s2, m, n)
