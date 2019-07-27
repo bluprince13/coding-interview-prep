@@ -1,5 +1,8 @@
 # https://www.hackerrank.com/challenges/ctci-making-anagrams/problem
 
+import unittest
+
+
 def makeAnagram(a, b):
     # example 1:
     #   cde, abc
@@ -16,12 +19,11 @@ def makeAnagram(a, b):
             temp_b = temp_b.replace(letter, "", 1)
         else:
             counter += 1
-    
+
     result = counter + len(temp_b)
     print(result)
-    return result 
-             
-import unittest
+    return result
+
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -30,6 +32,7 @@ class MyTest(unittest.TestCase):
         received = makeAnagram(a, b)
         expected = 4
         self.assertEqual(received, expected)
+
 
 if __name__ == '__main__':
     unittest.main()
