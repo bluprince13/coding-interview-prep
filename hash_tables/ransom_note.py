@@ -1,5 +1,8 @@
 # https://www.hackerrank.com/challenges/ctci-ransom-note/problem
 
+import unittest
+
+
 def checkMagazine(magazine, note):
     # brute force approach:
     # for each word in note, check if it exists in magazine
@@ -27,11 +30,10 @@ def checkMagazine(magazine, note):
                 note_words[word] += 1
         else:
             note_words[word] = 1
-        
+
     print(result)
     return result
-            
-import unittest
+
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -47,6 +49,7 @@ class MyTest(unittest.TestCase):
         received = checkMagazine(magazine, note)
         expected = "Yes"
         self.assertEqual(received, expected)
+
 
 if __name__ == '__main__':
     unittest.main()
