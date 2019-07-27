@@ -1,4 +1,5 @@
 # https://www.hackerrank.com/challenges/common-child/problem
+# https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
 
 import unittest
 
