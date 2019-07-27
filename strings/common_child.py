@@ -3,6 +3,7 @@
 import unittest
 
 
+# TODO: improve performance; not passing tests on hackerrank
 def commonChild(s1, s2):
     m = len(s1)
     n = len(s2)
@@ -20,7 +21,7 @@ def commonChild(s1, s2):
             result = 1 + lcs(s1, s2, m-1, n-1)
         # case 1: last letters don't match
         else:
-            temp1 = lcs(s1, s2, m, n-1) 
+            temp1 = lcs(s1, s2, m, n-1)
             temp2 = lcs(s1, s2, m-1, n)
             if temp1 > temp2:
                 result = temp1

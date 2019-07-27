@@ -1,7 +1,7 @@
 # https://www.hackerrank.com/challenges/alternating-characters/problem
 
 
-# TODO this doesn't seem very neat!
+# TODO: this doesn't seem very neat!
 def isValid(s):
     letter_map = {}
     for letter in s:
