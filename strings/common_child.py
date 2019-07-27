@@ -4,25 +4,26 @@ import unittest
 
 
 def commonChild(s1, s2):
-    longest_child = ''
-    common_children = []
-    tried_start_letters = []
-    for s1_idx, start_letter in enumerate(s1):
-        if start_letter in s2 and start_letter not in tried_start_letters:
-            tried_start_letters.append(start_letter)
-            common_child = start_letter
-            s2_idx = s2.find(start_letter) + 1
-            s2_remaining = s2[s2_idx:]
-            for letter in s1[s1_idx+1:]:
-                if letter in s2_remaining:
-                    common_child = common_child + letter
-                    s2_idx = s2_remaining.find(letter) + 1
-                    s2_remaining = s2_remaining[s2_idx:]
-            common_children.append(common_child)
-            if len(common_child) > len(longest_child):
-                longest_child = common_child
-    print(longest_child)
-    return len(longest_child)
+    m = len(s1)
+    n = len(s2)
+    arr = [[None for i in range(n + 1)] for j in range(m + 1)]
+
+    def lcs(s1, s2, m, n):
+        # check if intermediate result already known
+        if arr[m][n] is not None:
+            return arr[m][n]
+        # base case
+        if n == 0 or m == 0:
+            result = 0
+        # case 1: last letters match
+        elif s1[m - 1] == s2[n - 1]:
+            result = 1 + lcs(s1, s2, m-1, n-1)
+        # case 1: last letters don't match
+        else:
+            result = max(lcs(s1, s2, m, n-1), lcs(s1, s2, m-1, n))
+        arr[m][n] = result
+        return result
+    return lcs(s1, s2, m, n)
 
 
 class MyTest(unittest.TestCase):
