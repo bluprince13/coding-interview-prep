@@ -10,6 +10,7 @@ def commonChild(s1, s2):
     n = len(s2)
     arr = [[None for i in range(n + 1)] for j in range(m + 1)]
 
+    # recursive function to calculate longest common subsequence
     def lcs(s1, s2, m, n):
         # check if intermediate result already known
         if arr[m][n] is not None:
@@ -20,7 +21,7 @@ def commonChild(s1, s2):
         # case 1: last letters match
         elif s1[m - 1] == s2[n - 1]:
             result = 1 + lcs(s1, s2, m-1, n-1)
-        # case 1: last letters don't match
+        # case 2: last letters don't match
         else:
             temp1 = lcs(s1, s2, m, n-1)
             temp2 = lcs(s1, s2, m-1, n)
