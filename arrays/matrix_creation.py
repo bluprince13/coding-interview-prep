@@ -28,15 +28,22 @@ import unittest
 
 
 def getB(A):
+    # first identify shape of the matrix
     i, j = A.shape
+    # then define num_sets which we will use later
     num_sets = j - 1
 
+    # to find the first col of B, we identify the first col of A
     b_col1 = A[:, 0]
+    # and repeat it num_sets times
     b_col1 = np.tile(b_col1, num_sets)
 
+    # to find the second col of B, we start by flattening A
     b_col2 = A.flatten(order='F')
+    # and then remove the first num_sets of elements
     b_col2 = b_col2[i:]
 
+    # finally, stack the first and second columns of B together
     B = np.column_stack((b_col1, b_col2))
     return B
 
