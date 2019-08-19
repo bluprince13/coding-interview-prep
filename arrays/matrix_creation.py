@@ -40,7 +40,7 @@ def getB(A):
 
     # to find the second col of B, we start by flattening A
     b_col2 = A.flatten(order='F')
-    # and then remove the first i elements
+    # and then remove the first i elements (i.e the first col of A)
     b_col2 = b_col2[i:]
 
     # finally, stack the first and second columns of B together
