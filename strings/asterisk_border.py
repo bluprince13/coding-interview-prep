@@ -7,7 +7,8 @@ import unittest
 
 def apply_border(text):
     length = len(text)
-    border = "* " * length + "*"
+    border = "* " + "* " * (int(length/2) + 1) + "*"
+
     if length % 2:
         text = "* " + text + " *"
     else:
@@ -16,20 +17,36 @@ def apply_border(text):
 
 
 class MyTest(unittest.TestCase):
-    def test_odd(self):
-        text = "bla"
+    def test_3(self):
+        text = "abc"
         received = apply_border(text)
         expected = """* * * *
-* bla *
+* abc *
 * * * *"""
         self.assertEqual(received, expected)
 
-    def test_even(self):
-        text = "blah"
+    def test_4(self):
+        text = "abcd"
         received = apply_border(text)
         expected = """* * * * *
-* blah  *
+* abcd  *
 * * * * *"""
+        self.assertEqual(received, expected)
+
+    def test_5(self):
+        text = "abcde"
+        received = apply_border(text)
+        expected = """* * * * *
+* abcde *
+* * * * *"""
+        self.assertEqual(received, expected)
+
+    def test_6(self):
+        text = "abcdef"
+        received = apply_border(text)
+        expected = """* * * * * *
+* abcdef  *
+* * * * * *"""
         self.assertEqual(received, expected)
 
 
