@@ -1,29 +1,22 @@
+# no link available
+# find the Greatest Common Divisor [GCD] of a list of numbers
 import numpy as np
 import unittest
 
 
 def generalizedGCD(num, arr):
-    common_factors = find_common_factors(arr)
-    gcd =  max(common_factors)
+    arr = sorted(arr)
+    gcd = find_gcd(arr[0], arr[1])
+    for i in arr[2:]:
+        gcd = find_gcd(gcd, i)
     return gcd
 
-def find_common_factors(arr):
-    current_factors = find_factors(arr[0])
-    for number in arr[1:]: 
-        individual_factors = find_factors(number)
-        new_factors = []
-        for factor in current_factors:
-            if factor in individual_factors:
-                new_factors.append(factor)
-        current_factors = new_factors 
-    return new_factors
-
-def find_factors(num):
-    factors = []
-    for i in range(1, num + 1):
-        if num % i == 0:
-            factors.append(i)
-    return factors
+def find_gcd(x, y): 
+    # Euclidean algorithm
+    # https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd/problem?h_r=internal-search
+    while(y): 
+        x, y = y, x % y 
+    return x 
 
 
 class MyTest(unittest.TestCase):
