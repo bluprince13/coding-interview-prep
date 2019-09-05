@@ -1,6 +1,5 @@
 # no link available
 # find the Greatest Common Divisor [GCD] of a list of numbers
-import numpy as np
 import unittest
 
 
@@ -11,12 +10,13 @@ def generalizedGCD(num, arr):
         gcd = find_gcd(gcd, i)
     return gcd
 
-def find_gcd(x, y): 
+
+def find_gcd(x, y):
     # Euclidean algorithm
     # https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd/problem?h_r=internal-search
-    while(y): 
-        x, y = y, x % y 
-    return x 
+    while(y):
+        x, y = y, x % y
+    return x
 
 
 class MyTest(unittest.TestCase):
