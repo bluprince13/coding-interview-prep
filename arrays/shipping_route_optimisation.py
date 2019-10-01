@@ -1,10 +1,11 @@
 # no link available
 
+# Amazon online assessment
+
 import unittest
-import operator
+
 
 def optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList):
-    possible_routes = {}
     highest = 0
     result = []
     for forwardRoute in forwardRouteList:
@@ -25,8 +26,9 @@ def optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList):
                 result = [pair_id]
             elif total_dist == highest:
                 result.append(pair_id)
-    
+
     return result
+
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -41,7 +43,10 @@ class MyTest(unittest.TestCase):
             [2, 10],
             [3, 14]
         ]
-        received = optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList)
+        received = optimalUtilization(
+            maxTravelDist, 
+            forwardRouteList, 
+            returnRouteList)
         expected = [[3, 1]]
         self.assertEqual(received, expected)
 
@@ -57,9 +62,13 @@ class MyTest(unittest.TestCase):
             [2, 11],
             [3, 12]
         ]
-        received = optimalUtilization(maxTravelDist, forwardRouteList, returnRouteList)
+        received = optimalUtilization(
+            maxTravelDist, 
+            forwardRouteList, 
+            returnRouteList)
         expected = [[1, 3], [3, 2]]
         self.assertEqual(received, expected)
+
 
 if __name__ == '__main__':
     unittest.main()
