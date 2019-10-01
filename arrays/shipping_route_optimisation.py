@@ -44,8 +44,8 @@ class MyTest(unittest.TestCase):
             [3, 14]
         ]
         received = optimalUtilization(
-            maxTravelDist, 
-            forwardRouteList, 
+            maxTravelDist,
+            forwardRouteList,
             returnRouteList)
         expected = [[3, 1]]
         self.assertEqual(received, expected)
@@ -63,8 +63,8 @@ class MyTest(unittest.TestCase):
             [3, 12]
         ]
         received = optimalUtilization(
-            maxTravelDist, 
-            forwardRouteList, 
+            maxTravelDist,
+            forwardRouteList,
             returnRouteList)
         expected = [[1, 3], [3, 2]]
         self.assertEqual(received, expected)
