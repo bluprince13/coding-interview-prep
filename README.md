@@ -1,6 +1,7 @@
 # Coding challenges
 
-This is a collection of coding challenges that I've solved.
+This is a collection of coding challenges that I've solved, in preparation for
+coding interviews.
 
 One file per challenge.
 
@@ -10,6 +11,10 @@ and also unit tests to check the solution.
 
 Solutions may not be in a polished state. However, if you want me to explain a
 particular solution better, just ask me. :)
+
+It's not enough to just be able to solve coding challenges though. There are a
+few other topics that you need to be really familiar with. Listed below are
+various other resources that I use and recommend.
 
 # Big-O 
 
