@@ -16,12 +16,12 @@ It's not enough to just be able to solve coding challenges though. There are a
 few other topics that you need to be really familiar with. Listed below are
 various other resources that I use and recommend.
 
-# Big-O
+## Big-O
 
 - [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
 
-# System Design
+## System Design
 
 - [checkcheckzz - System Design
   Interview](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)
@@ -37,11 +37,11 @@ various other resources that I use and recommend.
 - [3 Ways to Ace Your System Design
   Interview](https://www.byte-by-byte.com/3-ways-to-ace-your-system-design-interview/)
 
-# OOP
+## OOP
 
 - [S.O.L.I.D. Principles of Object-Oriented Design](https://www.youtube.com/watch?v=GtZtQ2VFweA)
 
-# Agile
+## Agile
 
 Agile is a set of values and principles.
 
