@@ -16,7 +16,7 @@ It's not enough to just be able to solve coding challenges though. There are a
 few other topics that you need to be really familiar with. Listed below are
 various other resources that I use and recommend.
 
-# Big-O 
+# Big-O
 
 - [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
