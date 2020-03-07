@@ -1,4 +1,4 @@
-# Coding challenges
+# Coding interview prep
 
 This is a collection of coding challenges that I've solved, in preparation for
 coding interviews. I've also included some tips for acing your interview.
