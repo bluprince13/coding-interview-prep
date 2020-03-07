@@ -17,7 +17,7 @@ solutions manually. Laziness is a virtue. To run the unit tests, just invoke the
 Python. For example, `python fizzbuzz.py`.
 
 The solutions are generally not as perfect as I'd like them to be. However, if you want me to explain a
-particular solution better, just ask me and I can polish it up. I'm a nice guy. :P
+particular solution better, just ask me and I can polish it up. I'm a nice guy. :stuck_out_tongue:
 
 ## How to prep for coding challenges
 
@@ -99,8 +99,8 @@ you some brownie points.
 It's also okay to fail. I have failed so many times that I have lost count. I
 have even done, and failed, interviews where I had no intention of joining the company, but I
 just wanted the practice so that I had a better chance of nailing the interviews
-that mattered. :P What doesn't kill you makes you stronger. :)
+that mattered. :stuck_out_tongue: What doesn't kill you makes you stronger. :smiley:
 
 [Tweet me](https://twitter.com/vipinajayakumar) if this repo has been useful to you.
-:) I wish you all the best at your interviews and your programming career. May
+:smiley: I wish you all the best at your interviews and your programming career. May
 the force be with you. Don't be evil.
