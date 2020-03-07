@@ -5,7 +5,7 @@
 # on both sides of a cell are either active or inactive, the cell becomes
 # inactive on the next day; otherwise the cell becomes active. The two cells on
 # each end have a single adjacent cell, so assume that the unoccupied space on
-# the opposide side is an inactie cell. The state information of all cells
+# the opposide side is an inactive cell. The state information of all cells
 # should be updated simultaneously.
 
 import unittest

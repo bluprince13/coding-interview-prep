@@ -1,5 +1,7 @@
 # https://www.hackerrank.com/challenges/crush/problem
 
+import unittest
+
 # Sample Input
 # 5 3
 # 1 2 100
@@ -9,9 +11,10 @@
 # Sample Output
 # 200
 
+
 def arrayManipulation(n, queries):
     gradients = [0] * n
-    
+
     for query in queries:
         start, end, number = tuple(query)
         start -= 1
@@ -30,7 +33,6 @@ def arrayManipulation(n, queries):
 
     return maximum
 
-import unittest
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -44,6 +46,7 @@ class MyTest(unittest.TestCase):
         queries = [[2, 6, 8], [3, 5, 7], [1, 8, 1], [5, 9, 15]]
         expected = 31
         self.assertEqual(arrayManipulation(n, queries), expected)
+
 
 if __name__ == '__main__':
     unittest.main()

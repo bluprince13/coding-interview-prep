@@ -1,5 +1,7 @@
 # https://www.hackerrank.com/challenges/alternating-characters/problem
 
+import unittest
+
 
 # TODO: this doesn't seem very neat!
 def isValid(s):
@@ -17,7 +19,8 @@ def isValid(s):
             freq_map[frequency].append(letter)
 
     frequencies = list(freq_map.keys())
-    no_of_letters_per_frequency = [len(letters) for letters in freq_map.values()]
+    no_of_letters_per_frequency = [len(letters)
+                                   for letters in freq_map.values()]
     result = "NO"
     if len(frequencies) == 1:
         result = "YES"
@@ -32,9 +35,6 @@ def isValid(s):
 
     print(result)
     return result
-
-
-import unittest
 
 
 class MyTest(unittest.TestCase):
@@ -73,6 +73,7 @@ class MyTest(unittest.TestCase):
         received = isValid(s)
         expected = "NO"
         self.assertEqual(received, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

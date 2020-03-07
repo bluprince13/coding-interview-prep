@@ -1,5 +1,8 @@
 # https://www.hackerrank.com/challenges/minimum-swaps-2/problem
 
+import unittest
+
+
 def minimumSwaps(arr):
     # let's try some examples
     # example 1:
@@ -27,17 +30,16 @@ def minimumSwaps(arr):
     i = 0
     result = 0
     # go through each item in array
-    while i < length: 
+    while i < length:
         # if the item is not in the right place
-        while arr[i] != i + 1: 
+        while arr[i] != i + 1:
             # make a swap
-            arr[arr[i]-1], arr[i] = arr[i], arr[arr[i]-1] 
-            result += 1 
+            arr[arr[i]-1], arr[i] = arr[i], arr[arr[i]-1]
+            result += 1
             # check if the new item is in the right place ...
         i += 1
     return result
 
-import unittest
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -62,7 +64,8 @@ class MyTest(unittest.TestCase):
         arr = [4, 3, 5, 1, 2]
         expected = 3
         received = minimumSwaps(arr)
-        self.assertEqual(received, expected)      
+        self.assertEqual(received, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

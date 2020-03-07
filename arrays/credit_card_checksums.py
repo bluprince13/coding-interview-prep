@@ -18,7 +18,8 @@ def check_sum(card):
     # step 3
     #   extract all elements at an even position
     #   multiply each of them by 2
-    #       if you obtain a 2 digit number, replace it with the sum of its digits
+    #       if you obtain a 2 digit number, replace it with the sum of its
+    #       digits
     #   sum them up and assign it to B
     card_even_positions = card[1::2]
     B = 0

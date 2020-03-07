@@ -1,5 +1,8 @@
 # http://hr.gs/16xx
 
+import unittest
+
+
 def rotLeft(a, d):
 
     # don't want to do each rotation manually as that'd be O(n * d)
@@ -23,13 +26,11 @@ def rotLeft(a, d):
     n = len(a)
     for idx, num in enumerate(a):
         new_idx = idx - (d % n)
-        if new_idx < 0: 
+        if new_idx < 0:
             new_idx += n
         result[new_idx] = num
-    
-    return result
 
-import unittest
+    return result
 
 
 class MyTest(unittest.TestCase):
@@ -38,6 +39,7 @@ class MyTest(unittest.TestCase):
         d = 4
         expected = [5, 1, 2, 3, 4]
         self.assertEqual(rotLeft(a, d), expected)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -32,7 +32,8 @@ class MyTest(unittest.TestCase):
     def test_1(self):
         N = 15
         received = getFizzbuzz(N)
-        expected = [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
+        expected = [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8,
+                    'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
         self.assertEqual(received, expected)
 
 
