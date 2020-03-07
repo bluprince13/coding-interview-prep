@@ -1,56 +1,106 @@
 # Coding challenges
 
 This is a collection of coding challenges that I've solved, in preparation for
-coding interviews.
+coding interviews. I've also included some tips for acing your interview.
 
-One file per challenge.
+## Structure of this repo
 
-Links to the challenge (e.g. on [HackerRank](https://www.hackerrank.com)) are
+Challenges are grouped into folders by type, e.g., arrays, hash tables.
+
+One file per challenge. Links to the challenge, e.g. on [HackerRank](https://www.hackerrank.com), are
 provided at the top of each file. Each file contains my solution, comments,
 and also unit tests to check the solution.
 
-Solutions may not be in a polished state. However, if you want me to explain a
-particular solution better, just ask me. :)
+You probably won't need to write unit
+tests for your interview. I write them because I'm too lazy to check my
+solutions manually. Laziness is a virtue. To run the unit tests, just invoke the file with
+Python. For example, `python fizzbuzz.py`.
 
-It's not enough to just be able to solve coding challenges though. There are a
-few other topics that you need to be really familiar with. Listed below are
-various other resources that I use and recommend.
+The solutions are generally not as perfect as I'd like them to be. However, if you want me to explain a
+particular solution better, just ask me and I can polish it up. I'm a nice guy. :P
 
-## Big-O
+## How to prep for coding challenges
+
+Here are some good resources for preparing for the coding interview.
+
+- [Hackerrank's
+  interview preparation
+  kit](https://www.hackerrank.com/interview/interview-preparation-kit)
+
+  Most of the problems I practised on are from here. However, I prefer working
+  on my Mac with the [VSCode](https://code.visualstudio.com/) editor. Therefore, I would solve the
+  problems locally and then upload the solution to HackerRank once I thought it
+  was ready.
+- [Cracking the coding interview playlist](https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=1)
+- [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
+- [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
+
+Don't worry
+if you find some of the challenges really hard. There were plenty that I
+couldn't solve without looking for hints in other people's solutions. On some, I
+would spend an entire day trying to crack the puzzle! To be honest, knowing how to solve these coding challenges doesn't really help
+much in the day job as a programmer, but I do believe it's a reasonably good proxy for
+gauging a person's problem solving abilities / the way we think.
+
+## Topics worth understanding
+
+It's not enough to just be able to solve coding challenges. There are a
+few other topics that you need to be really familiar with. Listed below are some
+of these topics and links to learning resources that I recommend.
+
+### Big-O
+
+I can't stress how important it is to internalize this. Practice evaluating
+the complexity of your coding challenges until it's second nature to you.
 
 - [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
+### System Design / Object Oriented
 
-## System Design
+I'm not very good at this and I really struggled with the System Design
+questions that came my way. However, it's a very interesting subject and something that
+I'm excited about mastering in my programming career.
 
-- [checkcheckzz - System Design
-  Interview](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)
-- [donne martin - System Design Primer](https://github.com/donnemartin/system-design-primer)
-- [The Top 10 Object-Oriented Design Interview Questions Developers Should Know](https://hackernoon.com/the-top-10-object-oriented-design-interview-questions-developers-should-know-c7fc2e13ce39)
+If you are applying for an entry level job, you may not need to prepare for
+this. Do confirm what the company expects from you for your interview.
+
 - [Grokking the Object Oriented Design
-  Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)[How
-  to Interview (Object Oriented
-  Design)](https://danonrockstar.com/how-to-interview-object-oriented-design-60de0176dfbd)
-- [Coding and system design interview questions](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
-    - [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
-    - [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
-- [3 Ways to Ace Your System Design
-  Interview](https://www.byte-by-byte.com/3-ways-to-ace-your-system-design-interview/)
+  Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
 
-## OOP
+  This is a paid resource, but it's the only one I came across that had good
+  examples of System Design interview type questions. Highly recommended by moi.
 
+- [Coding and system design interview questions (YouTube playlist)](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
+  - [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
+  - [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
+- [System Design
+  Interview - checkcheckzz](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)
+- [System Design Primer - donnemartin](https://github.com/donnemartin/system-design-primer)
 - [S.O.L.I.D. Principles of Object-Oriented Design](https://www.youtube.com/watch?v=GtZtQ2VFweA)
 
-## Agile
+### Agile
 
-Agile is a set of values and principles.
+I wasn't tested on this at any point, but I think it's good to have at least an
+awareness of what Agile is: a set of values and principles.
 
 - [What is agile?](https://www.youtube.com/watch?v=Z9QbYZh1YXY&vl=en)
 - [Agile manifesto](https://agilemanifesto.org)
 - [Agile principles](https://agilemanifesto.org/principles.html)
 
-## Other resources
+## Parting words of wisdom
 
-- [Cracking the coding interview playlist](https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=1)
-- [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
-- [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
+Normally in a coding interview, I forget that I'm interviewing and end up
+completely absorbed in the thrill of solving the problem. I think that's a good
+thing. Try to enjoy the
+experience and not worry too much. It's also okay to mess up as long as you keep your cool. Messing up obviously happens
+a lot in the day job, and seeing that you can handle it well will probably score
+you some brownie points.
+
+It's also okay to fail. I have failed so many times that I have lost count. I
+have even done, and failed, interviews where I had no intention of joining the company, but I
+just wanted the practice so that I had a better chance of nailing the interviews
+that mattered. :P What doesn't kill you makes you stronger. :)
+
+[Tweet me](https://twitter.com/vipinajayakumar) if this repo has been useful to you.
+:) I wish you all the best at your interviews and your programming career. May
+the force be with you. Don't be evil.
