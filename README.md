@@ -23,7 +23,7 @@ particular solution better, just ask me and I can polish it up. I'm a nice guy. 
 
 Here are some good resources for preparing for the coding interview.
 
-- [Hackerrank's
+- [HackerRank's
   interview preparation
   kit](https://www.hackerrank.com/interview/interview-preparation-kit)
 
