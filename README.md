@@ -3,6 +3,10 @@
 This is a collection of coding challenges that I've solved, in preparation for
 coding interviews. I've also included some tips for acing your interview.
 
+> :warning: I do not intend for you to actually read the code that I've written.
+> It's not ultra efficient or well styled. My hope is just that seeing how I
+> prepped for my interviews inspires you to do your own prep.
+
 ## Structure of this repo
 
 Challenges are grouped into folders by type, e.g., arrays, hash tables.
@@ -23,17 +27,18 @@ particular solution better, just ask me and I can polish it up. I'm a nice guy. 
 
 Here are some good resources for preparing for the coding interview.
 
-- [HackerRank's
-  interview preparation
-  kit](https://www.hackerrank.com/interview/interview-preparation-kit)
+-   [HackerRank's
+    interview preparation
+    kit](https://www.hackerrank.com/interview/interview-preparation-kit)
 
-  Most of the problems I practised on are from here. However, I prefer working
-  on my Mac with the [VSCode](https://code.visualstudio.com/) editor. Therefore, I would solve the
-  problems locally and then upload the solution to HackerRank once I thought it
-  was ready.
-- [Cracking the coding interview playlist](https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=1)
-- [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
-- [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
+    Most of the problems I practised on are from here. However, I prefer working
+    on my Mac with the [VSCode](https://code.visualstudio.com/) editor. Therefore, I would solve the
+    problems locally and then upload the solution to HackerRank once I thought it
+    was ready.
+
+-   [Cracking the coding interview playlist](https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=1)
+-   [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
+-   [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
 
 Don't worry
 if you find some of the challenges really hard. There were plenty that I
@@ -53,7 +58,7 @@ of these topics and links to learning resources that I recommend.
 I can't stress how important it is to internalize this. Practice evaluating
 the complexity of your coding challenges until it's second nature to you.
 
-- [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
+-   [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
 ### System Design / Object Oriented
 
@@ -64,28 +69,28 @@ I'm excited about mastering in my programming career.
 If you are applying for an entry level job, you may not need to prepare for
 this. Do confirm what the company expects from you for your interview.
 
-- [Grokking the Object Oriented Design
-  Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
+-   [Grokking the Object Oriented Design
+    Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
 
-  This is a paid resource, but it's the only one I came across that had good
-  examples of System Design interview type questions. Highly recommended by moi.
+    This is a paid resource, but it's the only one I came across that had good
+    examples of System Design interview type questions. Highly recommended by moi.
 
-- [Coding and system design interview questions (YouTube playlist)](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
-  - [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
-  - [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
-- [System Design
-  Interview - checkcheckzz](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)
-- [System Design Primer - donnemartin](https://github.com/donnemartin/system-design-primer)
-- [S.O.L.I.D. Principles of Object-Oriented Design](https://www.youtube.com/watch?v=GtZtQ2VFweA)
+-   [Coding and system design interview questions (YouTube playlist)](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
+    -   [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
+    -   [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
+-   [System Design
+    Interview - checkcheckzz](https://github.com/checkcheckzz/system-design-interview/blob/master/README.md)
+-   [System Design Primer - donnemartin](https://github.com/donnemartin/system-design-primer)
+-   [S.O.L.I.D. Principles of Object-Oriented Design](https://www.youtube.com/watch?v=GtZtQ2VFweA)
 
 ### Agile
 
 I wasn't tested on this at any point, but I think it's good to have at least an
 awareness of what Agile is: a set of values and principles.
 
-- [What is agile?](https://www.youtube.com/watch?v=Z9QbYZh1YXY&vl=en)
-- [Agile manifesto](https://agilemanifesto.org)
-- [Agile principles](https://agilemanifesto.org/principles.html)
+-   [What is agile?](https://www.youtube.com/watch?v=Z9QbYZh1YXY&vl=en)
+-   [Agile manifesto](https://agilemanifesto.org)
+-   [Agile principles](https://agilemanifesto.org/principles.html)
 
 ## Parting words of wisdom
 
