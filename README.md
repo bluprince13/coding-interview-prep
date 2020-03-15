@@ -3,6 +3,13 @@
 This is a collection of coding challenges that I've solved, in preparation for
 coding interviews. I've also included some tips for acing your interview.
 
+I know my preparation works because I was successful at the two on-site
+interviews I've had so far. For transparency, the first company did reject me
+due to my lack of work experience as a software developer, but they assured me
+they were happy with my interviews. I'm now a full stack web developer in
+London. You can check out my CV at
+vipinajayakumar.com/cv/.
+
 > :warning: I do not intend for you to actually read the code that I've written.
 > It's not ultra efficient or well styled. My hope is just that seeing how I
 > prepped for my interviews inspires you to do your own prep.
