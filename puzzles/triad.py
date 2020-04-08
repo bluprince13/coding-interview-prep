@@ -1,4 +1,4 @@
-# https://www.hackerrank.com/challenges/ctci-fibonacci-numbers/problem
+# https://www.janestreet.com/puzzles/triads/
 
 import unittest
 
@@ -23,21 +23,21 @@ def print_triangle(triangle):
         print("   ".join(output))
 
 
+def is_div_by_3(number):
+    return number % 3 == 0
+
+
 def is_triadic(n):
     state = create_triangle(n)
     for i, row in enumerate(state[:-1]):
         for j, column in enumerate(row):
-            print("row ", i)
-            print("column ", j)
-
             if state[i][j]:
                 state[i][j] = 0
                 # if not the 3rd last row or the 1st row
                 if i != n - 3 or i == 0:
-                    # fill in - start with upside down triangle
-                    # except:
-                    # 1st element, last element
-                    if j != 0 and i != j and state[i][j+1] and state[i+1][j+1] and i != n - 2:
+                    # start with upside down triangle in some cases
+                    # this is kind of complex
+                    if is_div_by_3(i-j+1) and j != 0 and i != j and i != n-2 and state[i+1][j-1]:
                         state = draw_upside_down_triad(state, i, j)
                     # normal triangle possible?
                     elif state[i+1][j] and state[i+1][j+1]:
@@ -52,13 +52,14 @@ def is_triadic(n):
                         state = draw_normal_triad(state, i, j)
                     # upside down triangle possible?
                     elif state[i][j+1] and state[i+1][j+1]:
-                        print("Watch out here!")
                         state = draw_upside_down_triad(state, i, j, False)
                     else:
                         return False, state
             else:
                 continue
-            print_triangle(state)
+            # print("row ", i)
+            # print("column ", j)
+            # print_triangle(state)
     if state[n-1][n-1]:
         return False, state
     else:
@@ -148,24 +149,34 @@ class MyTest(unittest.TestCase):
         expected = True
         self.assertEqual(received[0], expected)
 
-    # def test_13(self):
-    #     n = 13
-    #     received = is_triadic(n)
-    #     expected = False
-    #     self.assertEqual(received[0], expected)
+    def test_13(self):
+        n = 13
+        received = is_triadic(n)
+        expected = False
+        self.assertEqual(received[0], expected)
 
-    # def test_14(self):
-    #     n = 14
-    #     received = is_triadic(n)
-    #     expected = False
-    #     self.assertEqual(received[0], expected)
+    def test_14(self):
+        n = 14
+        received = is_triadic(n)
+        expected = True
+        self.assertEqual(received[0], expected)
 
-    # def test_15(self):
-    #     n = 15
-    #     received = is_triadic(n)
-    #     expected = True
-    #     self.assertEqual(received[0], expected)
+    def test_15(self):
+        n = 15
+        received = is_triadic(n)
+        expected = False
+        self.assertEqual(received[0], expected)
 
 
 if __name__ == '__main__':
+    sumofn = 0
+    for n in range(2, 40):
+        satisfied = is_triadic(n)[0]
+        if satisfied:
+            print("n = ", n, " - Y")
+            sumofn += n
+        else:
+            print("n = ", n, " - N")
+    print("Sum of n: ", sumofn)
+
     unittest.main()
