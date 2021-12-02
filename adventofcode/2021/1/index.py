@@ -3,8 +3,8 @@
 import unittest
 
 
-def parse(input_data):
-    return list(map(int, input_data))
+def parse(lines):
+    return list(map(int, lines))
 
 
 def get_data():
