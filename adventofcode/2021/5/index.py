@@ -21,8 +21,10 @@ def parse(lines):
 def is_orthogonal(line):
     return line[0][0] == line[1][0] or line[0][1] == line[1][1]
 
+
 def is_horizontal(line):
     return line[0][0] == line[1][0]
+
 
 def initialise_matrix(lines):
     largest_x = max(max(line[0][0], line[1][0]) for line in lines)
@@ -45,9 +47,16 @@ def get_coordinates(line):
     xstop = line[1][0]
     xstep = -1 if xstart > xstop else 1
 
-    for x in range(xstart, xstop + xstep, xstep):
-        for y in range(ystart, ystop + ystep, ystep):
+    if is_orthogonal(line):
+        for x in range(xstart, xstop + xstep, xstep):
+            for y in range(ystart, ystop + ystep, ystep):
+                coordinates.append((x, y))
+    else:
+        for x, y in zip(
+            range(xstart, xstop + xstep, xstep), range(ystart, ystop + ystep, ystep)
+        ):
             coordinates.append((x, y))
+
     return coordinates
 
 
@@ -98,9 +107,19 @@ class MyTest(unittest.TestCase):
         expected = [(0, 0), (1, 0), (2, 0)]
         self.assertEqual(received, expected)
 
-    def test_find_number_of_overlaps(self):
+    def test_get_coordinates_diagonal(self):
+        received = get_coordinates(((0, 0), (2, 2)))
+        expected = [(0, 0), (1, 1), (2, 2)]
+        self.assertEqual(received, expected)
+
+    def test_find_number_of_overlaps_orthogonal_only(self):
         received = find_number_of_overlaps(get_data("test_input.txt"))
         expected = 5
+        self.assertEqual(received, expected)
+
+    def test_find_number_of_overlaps_including_diagonals(self):
+        received = find_number_of_overlaps(get_data("test_input.txt"), False)
+        expected = 12
         self.assertEqual(received, expected)
 
 
@@ -109,6 +128,6 @@ if __name__ == "__main__":
 
     data = get_data("input.txt")
     part1 = find_number_of_overlaps(data)
-    part2 = find_number_of_overlaps(data)
+    part2 = find_number_of_overlaps(data, False)
     print(part1)
     print(part2)
