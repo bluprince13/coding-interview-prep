@@ -21,44 +21,49 @@ def parse(lines):
 def is_orthogonal(line):
     return line[0][0] == line[1][0] or line[0][1] == line[1][1]
 
+def is_horizontal(line):
+    return line[0][0] == line[1][0]
 
 def initialise_matrix(lines):
     largest_x = max(max(line[0][0], line[1][0]) for line in lines)
     largest_y = max(max(line[0][1], line[1][1]) for line in lines)
-    return [([0] * (largest_x + 1)) for i in range(largest_y + 1)]
+    return [([0] * (largest_y + 1)) for i in range(largest_x + 1)]
 
 
 def get_orthogonal_lines(lines):
     return [line for line in lines if is_orthogonal(line)]
 
 
-def get_affected_coordinates(line, horizontal):
-    step = 1
-    if horizontal:
-        start = line[0][0]
-        stop = line[1][0]
-    else:
-        start = line[0][1]
-        stop = line[1][1]
-    if start > stop:
-        step = -1
-    affected_coordinates = list(range(start, stop + step, step))
-    return affected_coordinates
+def get_coordinates(line):
+    coordinates = []
+
+    ystart = line[0][1]
+    ystop = line[1][1]
+    ystep = -1 if ystart > ystop else 1
+
+    xstart = line[0][0]
+    xstop = line[1][0]
+    xstep = -1 if xstart > xstop else 1
+
+    for x in range(xstart, xstop + xstep, xstep):
+        for y in range(ystart, ystop + ystep, ystep):
+            coordinates.append((x, y))
+    return coordinates
 
 
-def get_matrix_of_overlaps(lines):
+def get_matrix_of_overlaps(lines, should_ignore_diagonals=True):
     matrix = initialise_matrix(lines)
-    lines = get_orthogonal_lines(lines)
+    if should_ignore_diagonals:
+        lines = get_orthogonal_lines(lines)
     for line in lines:
-        for i in get_affected_coordinates(line, horizontal=True):
-            for j in get_affected_coordinates(line, horizontal=False):
-                matrix[j][i] += 1
+        for x, y in get_coordinates(line):
+            matrix[x][y] += 1
     return matrix
 
 
-def find_number_of_overlaps(lines):
+def find_number_of_overlaps(lines, should_ignore_diagonals=True):
     number_of_overlaps = 0
-    for line in get_matrix_of_overlaps(lines):
+    for line in get_matrix_of_overlaps(lines, should_ignore_diagonals):
         for number in line:
             if number > 1:
                 number_of_overlaps += 1
@@ -78,19 +83,19 @@ class MyTest(unittest.TestCase):
         expected = (0, 9), (5, 9)
         self.assertEqual(received, expected)
 
-    def test_get_affected_coordinates(self):
-        received = get_affected_coordinates(((0, 9), (5, 9)), True)
-        expected = [0, 1, 2, 3, 4, 5]
+    def test_get_coordinates_horizontal(self):
+        received = get_coordinates(((0, 0), (0, 2)))
+        expected = [(0, 0), (0, 1), (0, 2)]
         self.assertEqual(received, expected)
 
-    def test_get_affected_coordinates_single_value(self):
-        received = get_affected_coordinates(((0, 9), (5, 9)), False)
-        expected = [9]
+    def test_get_coordinates_horizontal_reverse(self):
+        received = get_coordinates(((0, 2), (0, 0)))
+        expected = [(0, 2), (0, 1), (0, 0)]
         self.assertEqual(received, expected)
 
-    def test_get_affected_coordinates_negative(self):
-        received = get_affected_coordinates(((5, 9), (0, 9)), True)
-        expected = [5, 4, 3, 2, 1, 0]
+    def test_get_coordinates_vertical(self):
+        received = get_coordinates(((0, 0), (2, 0)))
+        expected = [(0, 0), (1, 0), (2, 0)]
         self.assertEqual(received, expected)
 
     def test_find_number_of_overlaps(self):
