@@ -31,6 +31,7 @@ def calculatePosition(commands):
             y -= distance
     return x * y
 
+
 def calculatePositionV2(commands):
     x = 0
     y = 0

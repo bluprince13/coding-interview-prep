@@ -18,8 +18,18 @@ def parse(lines):
     return [parse_line(line) for line in lines]
 
 
+def get_data(file):
+    with open(file) as f:
+        lines = f.read().splitlines()
+    return parse(lines)
+
+
 def is_orthogonal(line):
     return line[0][0] == line[1][0] or line[0][1] == line[1][1]
+
+
+def get_orthogonal_lines(lines):
+    return [line for line in lines if is_orthogonal(line)]
 
 
 def is_horizontal(line):
@@ -30,10 +40,6 @@ def initialise_matrix(lines):
     largest_x = max(max(line[0][0], line[1][0]) for line in lines)
     largest_y = max(max(line[0][1], line[1][1]) for line in lines)
     return [([0] * (largest_y + 1)) for i in range(largest_x + 1)]
-
-
-def get_orthogonal_lines(lines):
-    return [line for line in lines if is_orthogonal(line)]
 
 
 def get_coordinates(line):
@@ -77,12 +83,6 @@ def find_number_of_overlaps(lines, should_ignore_diagonals=True):
             if number > 1:
                 number_of_overlaps += 1
     return number_of_overlaps
-
-
-def get_data(file):
-    with open(file) as f:
-        lines = f.read().splitlines()
-    return parse(lines)
 
 
 class MyTest(unittest.TestCase):
