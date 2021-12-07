@@ -14,29 +14,17 @@
 # Day 10: 4, 5, 6, 6, 8  A newborn B gives birth to newborn D (9 days later),
 #                        and becomes an adult
 
-# In the above example, adult A can be counted on to always give birth every 7
-# days. i.e. A will always give birth day 1 of a 9 day cycle.
-
-# If we track number of breeders today, we know they will breed again on:
-#   Day 9 for newborns
-#   Day 7 for adults
-
 # Index    0  1  2  3  4  5  6  7  8
-# Day - = [1, 0, 0, 0, 0, 0, 0, 0, 1] = 2
-# Day 1 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3 - Count at 7 incremented by count at 0
-# Day 2 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 3 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 4 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 5 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 6 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 7 = [1, 0, 0, 0, 0, 0, 0, 1, 1] = 3
-# Day 8 = [1, 0, 0, 0, 0, 1, 0, 1, 1] = 4 - Count at 5 incremented by count at 7
-# Day 9 = [1, 0, 0, 0, 0, 1, 1, 1, 1] = 5 - Count at 6 incremented by count at 8
-# Day 10 = [1, 0, 0, 0, 0, 1, 1, 2, 1] = 5 - Count at 7 incremented by count at 0
-
+# Day - = [1, 0, 0, 0, 0, 0, 0, 0, 1] = 2 - Initial count of population by timer
+# Day 1 = [0, 0, 0, 0, 0, 0, 1, 1, 1] = 3
+# Day 2 = [0, 0, 0, 0, 0, 1, 1, 1, 0] = 3
+# Day 3 = [0, 0, 0, 0, 1, 1, 1, 0, 0] = 3
+# ...
+# Day 7 = [1, 1, 1, 0, 0, 0, 0, 0, 0] = 3
+# Day 8 = [1, 1, 0, 0, 0, 0, 1, 0, 1] = 4
 
 import unittest
-
+import copy
 
 def parse(lines):
     return list(map(int, lines[0].split(",")))
@@ -49,6 +37,7 @@ def get_data(file):
 
 
 def get_population_brute_force(timers, cycles):
+    timers = copy.copy(timers)
     for _ in range(cycles):
         count_zeros = 0
         for index, timer in enumerate(timers):
@@ -70,42 +59,41 @@ def get_population_optimised(timers, cycles):
         population_by_age[timer] += 1
 
     # Simulate cycles
-    for cycle in range(cycles):
-        # Take the modulus: e.g. 7 % 9 = 7
-        # cycle_day      : 0, 1, 2, 3, 4, 5, 6, 7, 8
-        cycle_day = cycle % period
-
-        # increment at   : 7, 8, 0, 1, 2, 3, 4, 5, 6
-        group_to_increment = (cycle_day + 7) % period
-        population_by_age[group_to_increment] += population_by_age[cycle_day]
-    return sum(population_by_age)
+    for _ in range(cycles):
+        new_population = [0] * period
+        for index, _ in enumerate(population_by_age):
+            if index < 8:
+                new_population[index] = population_by_age[index + 1]
+            else:
+                new_population[index] = population_by_age[0]
+            if index == 6:
+                new_population[index] += population_by_age[0]
+        population_by_age = new_population
+    return sum(new_population)
 
 
 class MyTest(unittest.TestCase):
-    # def test_get_population_brute_force(self):
-    #     received = get_population_brute_force(get_data("test_input.txt"), 18)
-    #     expected = 26
-    #     self.assertEqual(received, expected)
-
-    def test_get_population_optimised(self):
-        received = get_population_optimised([0, 8], 10)
-        expected = 6
+    def test_get_population_brute_force(self):
+        received = get_population_brute_force(get_data("test_input.txt"), 18)
+        expected = 26
         self.assertEqual(received, expected)
 
-    # def test_get_population_optimised(self):
-    #     received = get_population_optimised(get_data("test_input.txt"), 18)
-    #     expected = 26
-    #     self.assertEqual(received, expected)
+    def test_get_population_optimised_1(self):
+        received = get_population_optimised([0, 8], 8)
+        expected = 4
+        self.assertEqual(received, expected)
+
+    def test_get_population_optimised_2(self):
+        received = get_population_optimised(get_data("test_input.txt"), 18)
+        expected = 26
+        self.assertEqual(received, expected)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    # unittest.main()
 
-    # data = get_data("input.txt")
-    # part1 = get_population_brute_force(data, 80)
-
-    # data = get_data("input.txt")
-    # part2 = get_population_optimised(data, 256)
-
-    # print(part1)
-    # print(part2)
+    data = get_data("input.txt")
+    part1 = get_population_brute_force(data, 80)
+    part2 = get_population_optimised(data, 256)
+    print(part1)
+    print(part2)
