@@ -1,8 +1,8 @@
 # https://adventofcode.com/2021/day/10
 
 # Time taken
-# 1st part: 32 min
-# 2nd part: 39 min
+# 1st part: 32 m
+# 2nd part: 39 m
 
 import unittest
 import statistics
