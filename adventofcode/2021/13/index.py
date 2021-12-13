@@ -39,7 +39,6 @@
 
 import unittest
 import re
-import matplotlib.pyplot as plt
 
 
 def parse_coords(line):
