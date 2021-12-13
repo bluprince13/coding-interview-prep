@@ -2,8 +2,8 @@
 
 # Time taken
 
-# 1st part: > 2 hours
-# 2nd part: > 2 hours
+# 1st part: > 2h (took me ages to figure out there were two separate operations)
+# 2nd part: 45m
 
 # There are two separate operations:
 # 1. Reflection: Reflect the coordinates according to the fold.
