@@ -30,13 +30,13 @@ def generate_graph(data, end_node):
     coords = get_all_cords(data)
     for x, y in coords:
         if x > 0:
-            G.add_edge((x - 1, y), (x, y), weight=data[y][x])
-        if x < len(data[::-1]) - 1:
-            G.add_edge((x + 1, y), (x, y), weight=data[y][x])
+            G.add_edge((x - 1, y), (x, y), weight=data[x][y])
+        if x < end_node[0]:
+            G.add_edge((x + 1, y), (x, y), weight=data[x][y])
         if y > 0:
-            G.add_edge((x, y - 1), (x, y), weight=data[y][x])
+            G.add_edge((x, y - 1), (x, y), weight=data[x][y])
         if y < end_node[1]:
-            G.add_edge((x, y + 1), (x, y), weight=data[y][x])
+            G.add_edge((x, y + 1), (x, y), weight=data[x][y])
     return G
 
 
