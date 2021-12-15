@@ -1,8 +1,8 @@
 # https://adventofcode.com/2021/day/15
 
 # Time taken
-# 1st part:
-# 2nd part:
+# 1st part: ~1 hour
+# 2nd part: A long time - Had a bug in my code
 
 import unittest
 import networkx as nx
@@ -49,19 +49,19 @@ def get_data(file, full_map=False):
 
 
 def get_full_map(data):
-    length_tile = len(data[::-1])
+    length_tile = len(data)
     new_data = []
     for i in range(length_tile * 5):
         row = []
         for j in range(length_tile * 5):
-            original_value = data[i % 10][j % 10]
-            if j < 10 and i < 10:
+            original_value = data[i % length_tile][j % length_tile]
+            if j < length_tile and i < length_tile:
                 new_value = original_value
             else:
-                if j > 9:
-                    previous_value = row[j - 10]
-                elif i > 9:
-                    previous_value = new_data[i - 10][j]
+                if j >  length_tile - 1:
+                    previous_value = row[j - length_tile]
+                elif i > length_tile - 1:
+                    previous_value = new_data[i - length_tile][j]
                 new_value = previous_value + 1
                 if new_value > 9:
                     new_value = 1
@@ -76,10 +76,10 @@ def print_data(data):
 
 
 def get_lowest_risk(data, full_map=False):
-    data = get_full_map(data) if full_map else data
+    data = get_full_map(data.copy()) if full_map else data
 
     start_node = 0, 0
-    end_node = len(data) - 1, len(data[0]) - 1
+    end_node = len(data) - 1, len(data) - 1,
 
     G = generate_graph(data, end_node)
     lowest_risk = nx.shortest_path_length(G, start_node, end_node, weight="weight")
