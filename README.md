@@ -9,6 +9,8 @@ due to my lack of work experience as a software developer, but they assured me
 they were happy with my interviews. I'm now a full stack web developer in
 London. You can check out my CV at vipinajayakumar.com/cv/.
 
+I focus on Python in this repo. For a Java/Kotlin approach, checkout https://github.com/gravindran2412/coding-interview-prep
+
 > :warning: I do not intend for you to actually read the code that I've written.
 > It's not ultra efficient or well styled. My hope is just that seeing how I
 > prepped for my interviews inspires you to do your own prep.
