@@ -2,15 +2,23 @@
 
 import unittest
 
+# O(n^2)
 
 def countSwaps(a):
     tally = 0
 
-    for _ in a:
-        for j, _ in enumerate(a[:-1]):
+    for i, _ in enumerate(a[:-1]):
+        swapped_at_least_once = False
+        # Iterate until end of unsorted part of the list
+        for j, _ in enumerate(a[:-i-1]):
             if a[j] > a[j + 1]:
                 tally += 1
                 a[j], a[j + 1] = a[j + 1], a[j]
+                swapped_at_least_once = True
+
+        # Exit the loop if list is already sorted
+        if not swapped_at_least_once:
+            break
 
     minimum = a[0]
     maximum = a[-1]
