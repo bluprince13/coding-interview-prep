@@ -20,9 +20,29 @@ func SelectionSort(nums []int) []int {
 	return nums
 }
 
+func InsertionSort(nums []int) []int {
+	for i, value := range nums {
+		key := value
+		j := i - 1
+		for j >= 0 && nums[j] > key {
+			nums[j+1] = nums[j]
+			j--
+		}
+		nums[j+1] = key
+	}
+	return nums
+}
+
 func TestSelectionSort(t *testing.T) {
-	nums := []int{2, 4, 1}
+	nums := []int{3, 2, 1}
 	actual := SelectionSort(nums)
-	expected := []int{1, 2, 4}
+	expected := []int{1, 2, 3}
+	assert.Equal(t, expected, actual)
+}
+
+func TestInsertionSort(t *testing.T) {
+	nums := []int{3, 2, 1}
+	actual := InsertionSort(nums)
+	expected := []int{1, 2, 3}
 	assert.Equal(t, expected, actual)
 }
