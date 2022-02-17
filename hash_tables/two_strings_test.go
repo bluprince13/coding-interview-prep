@@ -17,11 +17,11 @@ func twoStrings(s1 string, s2 string) string {
 }
 
 func TestTwoStringsReturnsNO(t *testing.T) {
-	received := twoStrings("hello", "world")
-	assert.Equal(t, received, "NO")
+	actual := twoStrings("hello", "world")
+	assert.Equal(t, "NO", actual)
 }
 
 func TestTwoStringsReturnsYES(t *testing.T) {
-	received := twoStrings("hello", "hol")
-	assert.Equal(t, received, "YES")
+	actual := twoStrings("hello", "hol")
+	assert.Equal(t, "YES", actual)
 }
