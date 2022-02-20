@@ -118,7 +118,7 @@ func TestMergeSort(t *testing.T) {
 
 func TestPartition(t *testing.T) {
 	nums := []int{3, 2, 0, 5, 1}
-	actual := Partition(nums, 0, len(nums)-1)
+	actual := partition(nums, 0, len(nums)-1)
 	expected := 1
 	assert.Equal(t, expected, actual)
 	assert.Equal(t, []int{0, 1, 3, 5, 2}, nums)
