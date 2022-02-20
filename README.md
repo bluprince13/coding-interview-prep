@@ -66,6 +66,10 @@ It's not enough to just be able to solve coding challenges. There are a few
 other topics that you need to be really familiar with. Listed below are some of
 these topics and links to learning resources that I recommend.
 
+### Data structures
+
+See [Hacker Rank data structures playlist](https://www.youtube.com/playlist?list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX)
+
 ### Sorting algorithms
 
 See [Sorting Algorithms YouTube playlist](https://www.youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U).
