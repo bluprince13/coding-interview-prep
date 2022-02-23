@@ -1,6 +1,7 @@
 import unittest
 import io
 import sys
+import math
 
 
 class Node:
@@ -17,8 +18,8 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
+    # Definition from https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
     def create(self, val):
-        # TODO: Is this correct?
         if self.root == None:
             self.root = Node(val)
         else:
@@ -92,6 +93,21 @@ def is_isometric(a, b):
         is_isometric(a.left, b.left)
         and a.data == b.data
         and is_isometric(a.right, b.right)
+    )
+
+
+# https://youtu.be/i_Q0v_Ct5lY
+def checkBST(root, min=-math.inf, max=math.inf):
+    if root is None:
+        return True
+
+    if root.data < min or root.data > max:
+        return False
+    # Example: if root is 10,
+    # then on the left it can be upto 9 at most
+    # and on the right it has to be 11 at least
+    return checkBST(root.left, min, root.data - 1) and checkBST(
+        root.right, root.data + 1, max
     )
 
 
