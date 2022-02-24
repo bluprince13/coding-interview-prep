@@ -13,4 +13,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
     - uses: dschep/install-pipenv-action@v1
-    - run: pipenv run pytest
+    - run: |
+        pipenv install --dev
+        pipenv run pytest
