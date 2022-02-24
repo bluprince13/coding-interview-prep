@@ -12,7 +12,8 @@ class Player:
     def __repr__(self):
         return "%s %s" % (self.name, self.score)
 
-    def comparator(self, a, b):
+    @staticmethod
+    def comparator(a, b):
         if a.score > b.score:
             return -1
         elif a.score < b.score:
@@ -35,7 +36,7 @@ def get_players(a):
 
 def sort_players(a):
     data = get_players(a)
-    data = sorted(data, key=cmp_to_key(Player.comparator))
+    data.sort(key=cmp_to_key(Player.comparator))
     return data
 
 
