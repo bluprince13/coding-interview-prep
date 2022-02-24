@@ -16,6 +16,7 @@
 
 # At each iteration, each pair leads to two new pairs.
 
+from pathlib import Path
 import unittest
 import re
 
@@ -37,7 +38,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

@@ -4,6 +4,7 @@
 # 1st part: ~1 hour
 # 2nd part: A long time - Had a bug in my code
 
+from pathlib import Path
 import unittest
 import networkx as nx
 
@@ -41,7 +42,7 @@ def generate_graph(data, end_node):
 
 
 def get_data(file, full_map=False):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     lines = parse_lines(lines)
     lines = get_full_map(lines) if full_map else lines

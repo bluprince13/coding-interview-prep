@@ -4,6 +4,7 @@
 # 1st part: 32 m
 # 2nd part: 39 m
 
+from pathlib import Path
 import unittest
 import statistics
 
@@ -21,7 +22,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

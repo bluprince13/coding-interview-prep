@@ -30,6 +30,7 @@
 # 5. Identify d - it's the remaining unidenified letter in 4.
 # 6. Identify g - it's the remaining unidenified letter.
 
+from pathlib import Path
 import unittest
 
 real_digit_codes_map = {
@@ -58,7 +59,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

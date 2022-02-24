@@ -2,7 +2,7 @@
 
 import unittest
 import math
-
+from pathlib import Path
 
 def parse_line(line):
     return [int(number) for number in line]
@@ -13,7 +13,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

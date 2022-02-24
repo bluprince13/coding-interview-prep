@@ -37,6 +37,7 @@
 # 2. Apply reflection to all coordinates (if y1 > r) => 2r - y1
 # 3. Apply translation to all coordinates => y2 + translation
 
+from pathlib import Path
 import unittest
 import re
 
@@ -61,7 +62,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

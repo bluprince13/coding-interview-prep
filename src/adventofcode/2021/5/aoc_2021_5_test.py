@@ -1,5 +1,6 @@
 # https://adventofcode.com/2021/day/5
 
+from pathlib import Path
 import unittest
 from functools import reduce
 import re
@@ -19,7 +20,7 @@ def parse(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse(lines)
 

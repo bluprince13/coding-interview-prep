@@ -23,6 +23,7 @@
 # Day 7 = [1, 1, 1, 0, 0, 0, 0, 0, 0] = 3
 # Day 8 = [1, 1, 0, 0, 0, 0, 1, 0, 1] = 4
 
+from pathlib import Path
 import unittest
 import copy
 
@@ -31,7 +32,7 @@ def parse(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse(lines)
 

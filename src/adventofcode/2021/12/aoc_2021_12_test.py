@@ -4,6 +4,7 @@
 # 1st part: 3h 30m
 # 2nd part: 1h 01m
 
+from pathlib import Path
 import unittest
 import networkx as nx
 
@@ -17,7 +18,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     lines = parse_lines(lines)
     G = nx.Graph()

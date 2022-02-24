@@ -4,6 +4,7 @@
 # 1st part: 0 h 56 m
 # 2nd part: 0 h 14 m
 
+from pathlib import Path
 import unittest
 import itertools
 import copy
@@ -17,7 +18,7 @@ def parse_lines(lines):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse_lines(lines)
 

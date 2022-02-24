@@ -11,6 +11,7 @@
 # n = new_value - old_value     e.g. 4 - 1                  = 3
 # cost = n * (n + 1) / 2        e.g. 3 * (3 + 1) / 2        = 6
 
+from pathlib import Path
 import unittest
 import math
 from functools import reduce
@@ -28,7 +29,7 @@ def get_data(file):
 
 
 def get_data(file):
-    with open(file) as f:
+    with open(Path(__file__).parent / file) as f:
         lines = f.read().splitlines()
     return parse(lines)
 
