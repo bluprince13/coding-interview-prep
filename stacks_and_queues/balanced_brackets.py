@@ -18,6 +18,7 @@ import sys
 # Time complexity - O(n)
 # Space complexity - O(n)
 
+# https://youtu.be/IhJGJG-9Dx8
 def isBalanced(s):
     stack  = []
     openBrackets = "({["
