@@ -7,9 +7,11 @@ I know my preparation works because I was successful at the two on-site
 interviews I've had so far. For transparency, the first company did reject me
 due to my lack of work experience as a software developer, but they assured me
 they were happy with my interviews. I'm now a full stack web developer in
-London. You can check out my CV at [bluprince13.com/cv](https://bluprince13.com/cv).
+London. You can check out my CV at
+[bluprince13.com/cv](https://bluprince13.com/cv).
 
-I focus on Python in this repo. For a Java/Kotlin approach, checkout https://github.com/gravindran2412/coding-interview-prep
+I focus on Python in this repo. For a Java/Kotlin approach, checkout
+https://github.com/gravindran2412/coding-interview-prep
 
 > :warning: I do not intend for you to actually read the code that I've written.
 > It's not ultra efficient or well styled. My hope is just that seeing how I
@@ -52,6 +54,7 @@ Here are some good resources for preparing for the coding interview.
 - [Cracking the coding interview playlist](https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=1)
 - [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
 - [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
+- [Top 10 Algorithms for Coding Interview](https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
 
 Don't worry if you find some of the challenges really hard. There were plenty
 that I couldn't solve without looking for hints in other people's solutions. On
@@ -68,11 +71,13 @@ these topics and links to learning resources that I recommend.
 
 ### Data structures
 
-See [Hacker Rank data structures playlist](https://www.youtube.com/playlist?list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX)
+See
+[Hacker Rank data structures playlist](https://www.youtube.com/playlist?list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX)
 
 ### Sorting algorithms
 
-See [Sorting Algorithms YouTube playlist](https://www.youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U).
+See
+[Sorting Algorithms YouTube playlist](https://www.youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U).
 
 ### Big-O
 
