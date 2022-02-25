@@ -1,4 +1,6 @@
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 .idea
 .DS_store
 .pytest_cache
