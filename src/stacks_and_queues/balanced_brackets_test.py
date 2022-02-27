@@ -2,12 +2,6 @@
 
 import unittest
 
-import math
-import os
-import random
-import re
-import sys
-
 #
 # Complete the 'isBalanced' function below.
 #
@@ -20,7 +14,7 @@ import sys
 
 # https://youtu.be/IhJGJG-9Dx8
 def isBalanced(s):
-    stack  = []
+    stack = []
     openBrackets = "({["
     closedBrackets = ")}]"
 
@@ -29,7 +23,9 @@ def isBalanced(s):
             stack.append(character)
         elif stack and character in closedBrackets:
             lastCharacterInStack = stack[-1]
-            if openBrackets.find(lastCharacterInStack) == closedBrackets.find(character):
+            if openBrackets.find(lastCharacterInStack) == closedBrackets.find(
+                character
+            ):
                 stack.pop()
             else:
                 return "NO"
@@ -42,6 +38,7 @@ def isBalanced(s):
         return "NO"
     else:
         return "YES"
+
 
 class MyTest(unittest.TestCase):
     def test_1(self):
@@ -62,5 +59,6 @@ class MyTest(unittest.TestCase):
         expected = "YES"
         self.assertEqual(received, expected)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
