@@ -96,14 +96,15 @@ If you are applying for an entry level job, you may not need to prepare for
 this. Do confirm what the company expects from you for your interview.
 
 - [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
-- [Grokking the Object Oriented Design Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
 
-  - Free alternative:
-    [tssovi/grokking-the-object-oriented-design-interview](https://github.com/tssovi/grokking-the-object-oriented-design-interview)
 
   This is a paid resource, but it's the only one I came across that had good
   examples of System Design interview type questions. Highly recommended by moi.
 
+- [Grokking the Object Oriented Design Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
+
+  - Free alternative:
+    [tssovi/grokking-the-object-oriented-design-interview](https://github.com/tssovi/grokking-the-object-oriented-design-interview)
 - [Coding and system design interview questions (YouTube playlist)](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
   - [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
   - [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
