@@ -86,16 +86,20 @@ complexity of your coding challenges until it's second nature to you.
 
 - [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
-### System Design / Object Oriented
+### System Design and Object Oriented Design
 
-I'm not very good at this and I really struggled with the System Design
-questions that came my way. However, it's a very interesting subject and
-something that I'm excited about mastering in my programming career.
+I'm not very good at these and I really struggled with the design questions that
+came my way. However, it's a very interesting subject and something that I'm
+excited about mastering in my programming career.
 
 If you are applying for an entry level job, you may not need to prepare for
 this. Do confirm what the company expects from you for your interview.
 
+- [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
 - [Grokking the Object Oriented Design Interview](https://www.educative.io/courses/grokking-the-object-oriented-design-interview)
+
+  - Free alternative:
+    [tssovi/grokking-the-object-oriented-design-interview](https://github.com/tssovi/grokking-the-object-oriented-design-interview)
 
   This is a paid resource, but it's the only one I came across that had good
   examples of System Design interview type questions. Highly recommended by moi.
