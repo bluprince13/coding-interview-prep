@@ -97,7 +97,6 @@ this. Do confirm what the company expects from you for your interview.
 
 - [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
 
-
   This is a paid resource, but it's the only one I came across that had good
   examples of System Design interview type questions. Highly recommended by moi.
 
