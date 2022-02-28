@@ -18,7 +18,7 @@ class Stack:
     def isEmpty(self):
         return len(self.list) == 0
 
-# https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks
+# https://youtu.be/7ArHz8jPglw
 class MyQueue(object):
     def __init__(self):
         self.stackNewestOnTop = Stack()
