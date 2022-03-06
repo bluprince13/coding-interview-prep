@@ -55,6 +55,9 @@ Here are some good resources for preparing for the coding interview.
 - [Cracking the coding interview](https://www.youtube.com/watch?v=4NIb9l3imAo&t=587s)
 - [Cracking the coding skills](http://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf)
 - [Top 10 Algorithms for Coding Interview](https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
+- [Grokking the Coding Interview: Patterns for Coding Questions](https://www.educative.io/courses/grokking-the-coding-interview)
+  - Free alternative:
+    [14 Patterns to Ace Any Coding Interview Question](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
 
 Don't worry if you find some of the challenges really hard. There were plenty
 that I couldn't solve without looking for hints in other people's solutions. On
@@ -86,6 +89,12 @@ complexity of your coding challenges until it's second nature to you.
 
 - [Big-O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
 
+### SQL vs. NoSQL
+
+Understand differences between these two types of databases and how you might go
+about
+[choosing one or the other](https://www.mongodb.com/nosql-explained/nosql-vs-sql).
+
 ### System Design and Object Oriented Design
 
 I'm not very good at these and I really struggled with the design questions that
@@ -104,6 +113,7 @@ this. Do confirm what the company expects from you for your interview.
 
   - Free alternative:
     [tssovi/grokking-the-object-oriented-design-interview](https://github.com/tssovi/grokking-the-object-oriented-design-interview)
+
 - [Coding and system design interview questions (YouTube playlist)](https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka)
   - [System Design Interview Question: DESIGN A PARKING LOT - asked at Google, Facebook](https://www.youtube.com/watch?v=DSGsa0pu8-k)
   - [Amazon interview question: System design / Architecture for auto suggestions | type ahead](https://www.youtube.com/watch?v=xrYTjaK5QVM)
