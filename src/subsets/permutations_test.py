@@ -17,7 +17,7 @@ def permute(nums):
         for perm in perms:
             perm.append(n)  # [[2, 3], [3, 2]] => [[2, 3, 1], [3, 2, 1]]
         result.extend(perms)
-        nums.append(n) # [2, 3] => [2, 3, 1], so next time we'd pop 2
+        nums.append(n) # [2, 3] => [2, 3, 1], so next time we'd pop 2, and permutate [3, 1]
     return result
 
 
