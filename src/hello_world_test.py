@@ -19,7 +19,7 @@ class TestData:
 class TestClass:
     testdata = [
         TestData(id="boy name", input=("Vipin",), expected="Hello Vipin"),
-        TestData(id="girl name", input=("Geethu",), expected="FAIL"),
+        TestData(id="girl name", input=("Geethu",), expected="Hello Geethu"),
     ]
 
     @pytest.mark.parametrize(
