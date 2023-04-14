@@ -1,2 +1,2 @@
-pub mod simplify_path;
-pub mod validate_stack_sequence;
+mod simplify_path;
+mod validate_stack_sequence;
