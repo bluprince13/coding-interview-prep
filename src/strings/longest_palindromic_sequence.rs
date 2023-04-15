@@ -3,37 +3,36 @@
 use std::cmp::max;
 use std::collections::HashMap;
 
+// TODO: Implement a DP approach which would be faster
+
 pub fn  longest_palindrome_subseq(s: String) -> i32 {
-    fn solve(s: String, cache: &mut HashMap<String, i32> ) -> i32 {
-        if cache.contains_key(&s) {
-            return *cache.get(&s).unwrap();
+    fn solve<'a>(s: &'a str, cache: &mut HashMap<&'a str, i32> ) -> i32 {
+        if let Some(&result) = cache.get(s) {
+            return result;
         }
 
         let length = s.len();
-        if length == 0 {
-            return 0;
-        }
-        if length == 1 {
-            return 1;
+        if length < 2 {
+            return length as i32;
         }
 
         let first_letter = &s[..1];
         let last_letter = &s[length-1..];
-        let solution: i32;
-        if first_letter == last_letter {
-            solution = 2 + solve(s[1..s.len()-1].to_string(), cache);
-        } else {
-            solution =  max(
-                solve(s[1..s.len()].to_string(), cache),
-                solve(s[..s.len()-1].to_string(), cache),
-            );
-        }
-        cache.insert(s, solution);
+        let solution =
+            if first_letter == last_letter {
+                2 + solve(&s[1..length-1], cache)
+            } else {
+                max(
+                    solve(&s[1..length], cache),
+                    solve(&s[..length-1], cache),
+                )
+            };
+        cache.insert(&s, solution);
         solution
     }
 
-    let mut cache: HashMap<String, i32> = HashMap::new();
-    solve(s, &mut cache)
+    let mut cache: HashMap<&str, i32> = HashMap::new();
+    solve(&s, &mut cache)
 }
 
 #[cfg(test)]
