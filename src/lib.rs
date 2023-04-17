@@ -3,5 +3,6 @@
 mod hello_world;
 mod stacks_and_queues;
 mod strings;
+mod dynamic_programming;
 
 fn main() {}
