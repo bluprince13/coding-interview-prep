@@ -1,6 +1,6 @@
 fn say_hello(name: &str) -> String {
     let hello_string = format!("Hello, {}", name);
-    return hello_string;
+    hello_string
 }
 
 #[cfg(test)]

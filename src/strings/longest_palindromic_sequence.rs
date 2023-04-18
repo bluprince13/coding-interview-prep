@@ -27,7 +27,7 @@ pub fn  longest_palindrome_subseq(s: String) -> i32 {
                     solve(&s[..length-1], cache),
                 )
             };
-        cache.insert(&s, solution);
+        cache.insert(s, solution);
         solution
     }
 
