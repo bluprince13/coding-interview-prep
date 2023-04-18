@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/fibonacci-number/?envType=study-plan&id=dynamic-programming-i
+// https://leetcode.com/problems/fibonacci-number/
 
 pub fn fib(n: i32) -> i32 {
     let mut cache = [0, 1];
