@@ -1,0 +1,27 @@
+{
+  "name": "coding-interview-prep",
+  "version": "1.0.0",
+  "description": "This is a collection of coding challenges that I've solved, in preparation for coding interviews. I've also included some tips for acing your interview.",
+  "main": "index.js",
+  "scripts": {
+    "bootstrapWebapp": "ts-node bootstrapWebapp.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluprince13/coding-interview-prep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluprince13/coding-interview-prep/issues"
+  },
+  "homepage": "https://github.com/bluprince13/coding-interview-prep#readme",
+  "devDependencies": {
+    "js-yaml": "^4.1.0",
+    "path": "^0.12.7",
+    "recursive-readdir": "^2.2.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
