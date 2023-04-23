@@ -1,9 +1,11 @@
 import * as fs from 'fs'
 import { load } from 'js-yaml'
+import path from 'path'
 import recursiveReaddir from 'recursive-readdir'
 
 export interface ProblemMetadata {
     url: string
+    linkText: string
     time_complexity: string
     categories: string[]
     difficulty: {
@@ -14,32 +16,117 @@ export interface ProblemMetadata {
 }
 
 export interface Problem {
-    filename: string
+    number: number
+    fileName: string
+    filePath: string
+    fileUrl: string
     metadata: ProblemMetadata
     createdAt: Date
     modifiedAt: Date
+    language: Language
+}
+
+type Language =
+    | 'JavaScript'
+    | 'TypeScript'
+    | 'Python'
+    | 'Rust'
+    | 'Go'
+    | 'Unknown'
+
+type FilePath = string
+
+const DEFAULTPROBLEM_METADATA: ProblemMetadata = {
+    url: '',
+    linkText: '',
+    time_complexity: '',
+    categories: [],
+    difficulty: {
+        site: '',
+        perceived: ''
+    },
+    resources: []
+}
+
+const REPO_PATH =
+    'https://github.com/bluprince13/coding-interview-prep/blob/master'
+
+function getLanguage(filePath: FilePath): Language {
+    const extension = filePath.split('.').pop()?.toLowerCase()
+    switch (extension) {
+        case 'js':
+            return 'JavaScript'
+        case 'ts':
+            return 'TypeScript'
+        case 'py':
+            return 'Python'
+        case 'rs':
+            return 'Rust'
+        case 'go':
+            return 'Go'
+        default:
+            return 'Unknown'
+    }
+}
+
+function getLinkText(url: string): string {
+    const urlObj = new URL(url)
+    const domain = urlObj.hostname
+    const segments = urlObj.pathname.split('/')
+    const resource = segments[segments.length - 1]
+    return `${domain} - ${resource}`
 }
 
 export const getProblems = async (): Promise<Problem[]> => {
-    const problemFiles = await recursiveReaddir('./src')
-    console.log(problemFiles)
-    const problems = problemFiles.map((filename) => {
-        const contents = fs.readFileSync(filename, 'utf8')
-        const [, metadataStr] = contents.split('\n---')
-        if (!metadataStr) return null
-        const metadata = load(metadataStr.trim()) as ProblemMetadata
-        const { birthtime, mtime } = fs.statSync(filename)
-        return {
-            filename,
-            metadata,
-            createdAt: birthtime,
-            modifiedAt: mtime
-        }
-    })
-    return problems.filter((problem) => !!problem)
+    const problemFiles: FilePath[] = await recursiveReaddir('./src')
+    let problems = problemFiles
+        .filter((filePath) =>
+            ['.rs', '.py', '.go', '.ts'].some((ext) => filePath.endsWith(ext))
+        )
+        .filter((filePath) => filePath.split('/').length > 2)
+        .map((filePath) => {
+            const contents = fs.readFileSync(filePath, 'utf8')
+            const [, metadataStr] = contents.split('\n---')
+            let metadata: ProblemMetadata | undefined
+            if (metadataStr) {
+                metadata = load(metadataStr.trim()) as ProblemMetadata
+                metadata = {
+                    ...metadata,
+                    linkText: getLinkText(metadata.url)
+                }
+            }
+            const { birthtime, mtime } = fs.statSync(filePath)
+            const language = getLanguage(filePath)
+            return {
+                number: 0,
+                fileName: path.basename(filePath),
+                language,
+                filePath,
+                fileUrl: `${REPO_PATH}/${filePath}`,
+                metadata: metadata || DEFAULTPROBLEM_METADATA,
+                createdAt: birthtime,
+                modifiedAt: mtime
+            }
+        })
+    problems.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
+    problems = problems.map((problem, index) => ({
+        ...problem,
+        number: index + 1
+    }))
+    return problems
 }
 
 getProblems().then((problems) => {
     const jsonData = JSON.stringify(problems)
-    fs.writeFileSync('webapp/src/data/problems.json', jsonData)
+    fs.writeFileSync('webapp/src/buildAssets/problems.json', jsonData)
 })
+
+fs.copyFile(
+    __filename,
+    'webapp/src/buildAssets/bootstrapWebapp.ts',
+    (error) => {
+        if (error) {
+            console.error(`Error copying file: ${error}`)
+        }
+    }
+)
