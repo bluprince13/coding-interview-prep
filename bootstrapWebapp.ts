@@ -116,14 +116,22 @@ export const getProblems = async (): Promise<Problem[]> => {
     return problems
 }
 
+const buildAssetsDirectory = 'webapp/src/buildAssets';
+if (!fs.existsSync(buildAssetsDirectory)) {
+  fs.mkdirSync(buildAssetsDirectory, { recursive: true });
+  console.log(`Created directory ${buildAssetsDirectory}`);
+} else {
+  console.log(`Directory ${buildAssetsDirectory} already exists`);
+}
+
 getProblems().then((problems) => {
     const jsonData = JSON.stringify(problems)
-    fs.writeFileSync('webapp/src/buildAssets/problems.json', jsonData)
+    fs.writeFileSync(`${buildAssetsDirectory}/problems.json`, jsonData)
 })
 
 fs.copyFile(
     __filename,
-    'webapp/src/buildAssets/bootstrapWebapp.ts',
+    `${buildAssetsDirectory}/bootstrapWebapp.ts`,
     (error) => {
         if (error) {
             console.error(`Error copying file: ${error}`)
