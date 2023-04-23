@@ -1,7 +1,9 @@
 import * as fs from 'fs'
+import axios from 'axios'
 import { load } from 'js-yaml'
 import path from 'path'
 import recursiveReaddir from 'recursive-readdir'
+import { Octokit } from '@octokit/rest'
 
 export interface ProblemMetadata {
     url: string
@@ -122,6 +124,46 @@ if (!fs.existsSync(buildAssetsDirectory)) {
   console.log(`Created directory ${buildAssetsDirectory}`);
 } else {
   console.log(`Directory ${buildAssetsDirectory} already exists`);
+interface FilesAndContents {
+    [key: string]: string
+}
+
+const octokit = new Octokit({ auth: `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` });
+let dirContentsConfig = {
+    owner: "bluprince13",
+    repo: "coding-interview-prep",
+    path: "src"
+  }
+
+const getFilesAndContents = async () : Promise<FilesAndContents> => {
+    const githubContents = await octokit.repos.getContent(dirContentsConfig);
+    const files = githubContents.data
+    const filesAndContents: FilesAndContents= {}
+    await Promise.all(
+        files.forEach(async (file: any) => {
+            const contentsResponse = await axios.get(file.download_url)
+            const contents = contentsResponse.data
+            filesAndContents[file.name] = contents
+        })
+    )
+    return filesAndContents
+}
+
+export const getProblems = async (filesAndContents: FilesAndContents): Promise<Problem[]> => {
+    const problems = Object.entries(filesAndContents).map(
+        ([file, contents]) => {
+            const [, metadataStr] = contents.split('\n---')
+            if (!metadataStr) return null
+            const metadata = load(metadataStr.trim()) as ProblemMetadata
+            return {
+                filename: file.name,
+                metadata,
+                createdAt: new Date(file.created_at);
+                modifiedAt: new Date(file.updated_at);
+            }
+        }
+    )
+    return problems.filter((problem) => !!problem)
 }
 
 getProblems().then((problems) => {
