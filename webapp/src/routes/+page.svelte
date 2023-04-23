@@ -1,55 +1,80 @@
 <script lang="ts">
-    import problemsJson from '../buildAssets/problems.json';
-    import type { Problem } from '../buildAssets/bootstrapWebapp';
-    const problems: Problem[] = problemsJson
+	import problemsJson from '../buildAssets/problems.json';
+	import type { Problem } from '../buildAssets/bootstrapWebapp';
+	import _ from 'lodash';
+	import {
+		Table,
+		TableBody,
+		TableBodyCell,
+		TableBodyRow,
+		TableHead,
+		TableHeadCell,
+		TableSearch
+	} from 'flowbite-svelte';
+	const items: Problem[] = problemsJson;
+
+	const filterByValue = (arr, str) => {
+		return arr.filter((obj) => {
+			console.log(JSON.stringify(obj).toLowerCase());
+			return JSON.stringify(obj).toLowerCase().includes(str.toLowerCase());
+		});
+	};
+
+	let searchTerm = '';
+	$: filteredItems = filterByValue(items, searchTerm);
 </script>
 
 <h1>Coding problems</h1>
-<table>
-	<thead>
-		<tr>
-            <th>Number</th>
-			<th>File</th>
-            <th>Language</th>
-			<th>Problem Source</th>
-			<th>Difficulty</th>
-			<th>Perceived difficulty</th>
-			<th>Categories</th>
-			<th>Created</th>
-			<th>Modified</th>
-		</tr>
-	</thead>
-	<tbody>
-		{#each problems as problem}
-			<tr>
-				<td>{problem.number}</td>
-				<td><a href={problem.fileUrl}>{problem.fileName}</a></td>
-                <td>{problem.language}</td>
-				<td><a href={problem.metadata.url}>{problem.metadata.linkText}</a></td>
-				<td>{problem.metadata.difficulty.site}</td>
-				<td>{problem.metadata.difficulty.perceived}</td>
-				<td>{problem.metadata.categories.join(', ')}</td>
-				<td>{new Date(problem.createdAt).toLocaleDateString()}</td>
-				<td>{new Date(problem.modifiedAt).toLocaleDateString()}</td>
-			</tr>
-		{/each}
-	</tbody>
-</table>
+<Table hoverable={true} striped={true} shadow>
+	<caption
+		class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+	>
+		Coding problems
+		<p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+			List of problems I have done.
+		</p>
+	</caption>
+	<TableSearch placeholder="Search" hoverable={true} bind:inputValue={searchTerm}>
+		<TableHead>
+			<TableHeadCell>Number</TableHeadCell>
+			<TableHeadCell>File</TableHeadCell>
+			<TableHeadCell>Language</TableHeadCell>
+			<TableHeadCell>Problem Source</TableHeadCell>
+			<TableHeadCell>Difficulty</TableHeadCell>
+			<TableHeadCell>Perceived difficulty</TableHeadCell>
+			<TableHeadCell>Categories</TableHeadCell>
+			<TableHeadCell>Created</TableHeadCell>
+			<TableHeadCell>Modified</TableHeadCell>
+		</TableHead>
+		<TableBody tableBodyClass="divide-y">
+			{#each filteredItems as item}
+				<TableBodyRow class="table-row">
+					<TableBodyCell>{item.number}</TableBodyCell>
+					<TableBodyCell
+						><a
+							class="font-medium text-blue-600
+				hover:underline dark:text-blue-500"
+							href={item.fileUrl}>{item.fileName}</a
+						></TableBodyCell
+					>
+					<TableBodyCell>{item.language}</TableBodyCell>
+					<TableBodyCell
+						><a
+							class="font-medium text-blue-600
+				hover:underline dark:text-blue-500"
+							href={item.metadata.url}>{item.metadata.linkText}</a
+						></TableBodyCell
+					>
+					<TableBodyCell>{item.metadata.difficulty.site}</TableBodyCell>
+					<TableBodyCell>{item.metadata.difficulty.perceived}</TableBodyCell>
+					<TableBodyCell>{item.metadata.categories.join(', ')}</TableBodyCell>
+					<TableBodyCell>{new Date(item.createdAt).toLocaleDateString()}</TableBodyCell>
+					<TableBodyCell>{new Date(item.modifiedAt).toLocaleDateString()}</TableBodyCell>
+				</TableBodyRow>
+			{/each}
+		</TableBody>
+	</TableSearch>
+</Table>
 
 <style>
-	table {
-		border-collapse: collapse;
-		width: 100%;
-	}
-
-	th,
-	td {
-		border: 1px solid black;
-		padding: 8px;
-		text-align: left;
-	}
-
-	th {
-		background-color: #dddddd;
-	}
 </style>
