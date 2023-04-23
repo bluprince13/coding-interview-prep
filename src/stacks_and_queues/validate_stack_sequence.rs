@@ -10,8 +10,7 @@ pub fn validate_stack_sequences(pushed: Vec<i32>, popped: Vec<i32>) -> bool {
         // We have to either do a push, or a pop until we have iterated through
         // the popped vector
         // If we can't push/pop, then we can just return false
-        let max_stack = stack.len() - 1;
-        if !stack.is_empty() && stack[max_stack] == popped[j] {
+        if !stack.is_empty() && stack[stack.len() - 1] == popped[j] {
             stack.pop();
             j += 1;
         } else if i <= max_i {
@@ -34,7 +33,7 @@ mod tests {
         let popped = vec![4, 5, 3, 2, 1];
         let actual = validate_stack_sequences(pushed, popped);
 
-        assert_eq!(actual, true);
+        assert!(actual);
     }
 
     #[test]
@@ -43,7 +42,7 @@ mod tests {
         let popped = vec![4, 3, 5, 1, 2];
         let actual = validate_stack_sequences(pushed, popped);
 
-        assert_eq!(actual, false);
+        assert!(!actual);
     }
 
     #[test]
@@ -52,6 +51,6 @@ mod tests {
         let popped = vec![2, 1, 3, 0];
         let actual = validate_stack_sequences(pushed, popped);
 
-        assert_eq!(actual, true);
+        assert!(actual);
     }
 }
