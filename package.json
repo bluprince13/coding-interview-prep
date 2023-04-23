@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bootstrapWebapp": "ts-node bootstrapWebapp.ts",
-    "buildWebapp": "npm run bootstrapWebapp && cd webapp && npm run build",
+    "buildWebapp": "npm run bootstrapWebapp && cd webapp && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
