@@ -9,7 +9,7 @@
 	<p>
 		This is a UI for a collection of coding challenges that I've solved at <a
 			href="https://github.com/bluprince13/coding-interview-prep">coding-interview-prep</a
-		>
+		>.
 	</p>
 
 	<table>
@@ -22,8 +22,6 @@
 				<th>Difficulty</th>
 				<th>Perceived difficulty</th>
 				<th>Categories</th>
-				<th>Created</th>
-				<th>Modified</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,8 +34,6 @@
 					<td>{problem.metadata.difficulty.site}</td>
 					<td>{problem.metadata.difficulty.perceived}</td>
 					<td>{problem.metadata.categories.join(', ')}</td>
-					<td>{new Date(problem.createdAt).toLocaleDateString()}</td>
-					<td>{new Date(problem.modifiedAt).toLocaleDateString()}</td>
 				</tr>
 			{/each}
 		</tbody>

@@ -21,8 +21,6 @@ export interface Problem {
     filePath: string
     fileUrl: string
     metadata: ProblemMetadata
-    createdAt: Date
-    modifiedAt: Date
     language: Language
 }
 
@@ -95,7 +93,6 @@ export const getProblems = async (): Promise<Problem[]> => {
                     linkText: getLinkText(metadata.url)
                 }
             }
-            const { birthtime, mtime } = fs.statSync(filePath)
             const language = getLanguage(filePath)
             return {
                 number: 0,
@@ -103,12 +100,10 @@ export const getProblems = async (): Promise<Problem[]> => {
                 language,
                 filePath,
                 fileUrl: `${REPO_PATH}/${filePath}`,
-                metadata: metadata || DEFAULTPROBLEM_METADATA,
-                createdAt: birthtime,
-                modifiedAt: mtime
+                metadata: metadata || DEFAULTPROBLEM_METADATA
             }
         })
-    problems.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
+    problems.sort((a, b) => a.fileUrl.localeCompare(b.fileUrl))
     problems = problems.map((problem, index) => ({
         ...problem,
         number: index + 1
