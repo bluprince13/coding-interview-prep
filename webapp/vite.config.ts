@@ -5,6 +5,5 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	base: '/apps/coding-interview-prep/'
+	}
 });
