@@ -6,5 +6,5 @@ export default defineConfig({
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
-	base: './apps/coding-interview-prep'
+	base: './apps/coding-interview-prep/'
 });
