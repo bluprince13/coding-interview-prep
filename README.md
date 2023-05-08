@@ -3,6 +3,9 @@
 This is a collection of coding challenges that I've solved, in preparation for
 coding interviews. I've also included some tips for acing your interview.
 
+You can see a list of all the problems I have solved at
+https://bluprince13.com/apps/coding-interview-prep.
+
 I know my preparation works because I was successful at the two on-site
 interviews I've had so far. For transparency, the first company did reject me
 due to my lack of work experience as a software developer, but they assured me
@@ -10,7 +13,7 @@ they were happy with my interviews. I'm now a full stack web developer in
 London. You can check out my CV at
 [bluprince13.com/cv](https://bluprince13.com/cv).
 
-I focus on Python in this repo. For a Java/Kotlin approach, checkout
+I focus on Python and Rust in this repo. For a Java/Kotlin approach, checkout
 https://github.com/gravindran2412/coding-interview-prep
 
 > :warning: I do not intend for you to actually read the code that I've written.

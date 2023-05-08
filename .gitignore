@@ -3,6 +3,7 @@
 !.vscode/launch.json
 .idea
 .DS_store
+.DS_Store
 .pytest_cache
 __pycache__
 target
