@@ -1,3 +1,16 @@
+/*
+---
+difficulty:
+    site:
+    perceived:
+url:
+time_complexity:
+space_complexity:
+categories: []
+resources: []
+---
+*/
+
 fn say_hello(name: &str) -> String {
     let hello_string = format!("Hello, {}", name);
     hello_string

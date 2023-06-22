@@ -34,7 +34,7 @@ type Language =
 
 type FilePath = string
 
-const DEFAULTPROBLEM_METADATA: ProblemMetadata = {
+const DEFAULT_PROBLEM_METADATA: ProblemMetadata = {
     url: '',
     linkText: '',
     time_complexity: '',
@@ -68,11 +68,15 @@ function getLanguage(filePath: FilePath): Language {
 }
 
 function getLinkText(url: string): string {
-    const urlObj = new URL(url)
-    const domain = urlObj.hostname
-    const segments = urlObj.pathname.split('/')
-    const resource = segments[segments.length - 1]
-    return `${domain} - ${resource}`
+    try {
+        const urlObj = new URL(url)
+        const domain = urlObj.hostname
+        const segments = urlObj.pathname.split('/')
+        const resource = segments[segments.length - 1]
+        return `${domain} - ${resource}`
+    } catch (e) {
+        return ''
+    }
 }
 
 export const getProblems = async (): Promise<Problem[]> => {
@@ -100,7 +104,7 @@ export const getProblems = async (): Promise<Problem[]> => {
                 language,
                 filePath,
                 fileUrl: `${REPO_PATH}/${filePath}`,
-                metadata: metadata || DEFAULTPROBLEM_METADATA
+                metadata: metadata || DEFAULT_PROBLEM_METADATA
             }
         })
     problems.sort((a, b) => a.fileUrl.localeCompare(b.fileUrl))
