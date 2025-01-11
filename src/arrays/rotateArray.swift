@@ -3,6 +3,13 @@
 import Testing
 
 enum RotateArrayNamespace {
+    // Intuition
+    // Following rotation with any k, it looks like
+    // two blocks of elements have just been swapped.
+    // If the array only had two blocks [A, B]
+    // Then the solution is a simple reversal to [B, A]
+    // However, B and A consists of multiple elements which have now been reversed.
+    // Therefore, as a correction, we reverse the contents of B and A.
     static func rotate(_ nums: inout [Int], _ k: Int) {
         let numRotations = k % nums.count
 
