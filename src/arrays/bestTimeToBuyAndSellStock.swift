@@ -33,7 +33,7 @@ enum BestTimeToBuyAndSellStockNamespace {
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        var result = maxProfit(testData.input.nums)
+        let result = maxProfit(testData.input.nums)
         #expect(result == testData.expected.val)
     }
 }
