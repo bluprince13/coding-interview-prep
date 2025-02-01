@@ -50,6 +50,7 @@ polish it up. I'm a nice guy. :stuck_out_tongue:
 1. Install [Tuist](https://docs.tuist.dev/en/guides/quick-start/install-tuist)
 2. `tuist edit` to edit the tuist configuration in Xcode
 3. `tuist generate` to open the project in Xcode
+4. `tuist test` to run all tests in terminal
 
 ## How to prep for coding challenges
 
