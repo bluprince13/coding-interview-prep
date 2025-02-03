@@ -45,6 +45,11 @@ polish it up. I'm a nice guy. :stuck_out_tongue:
 
 ## Setup
 
+### Rust
+
+1. [Install Rust ](https://www.rust-lang.org/tools/install)
+2. `cargo test` to run all tests in terminal
+
 ### Swift
 
 1. Install [Tuist](https://docs.tuist.dev/en/guides/quick-start/install-tuist)
