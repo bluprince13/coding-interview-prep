@@ -2,13 +2,13 @@
 
 import Testing
 
-enum CandyNamespace {
+enum Candy {
     class Solution {
         // We could create a new array candy, and
         // traverse rating array twice - left and right
         // to ensure the requirement is met on the candy array
         // in both directions. This would be O(N) time and O(N) space.
-        static func candy(_ ratings: [Int]) -> Int {
+        func candy(_ ratings: [Int]) -> Int {
             let totalCount = ratings.count
             var candy = Array(repeating: 1, count: totalCount)
 
@@ -25,7 +25,7 @@ enum CandyNamespace {
             return candy.reduce(0, +)
         }
 
-        static func candyOptimised(_ ratings: [Int]) -> Int {
+        func candyOptimised(_ ratings: [Int]) -> Int {
             let totalCount = ratings.count
             var candyCount = totalCount
 
@@ -92,7 +92,7 @@ enum CandyNamespace {
         arguments: testArguments
     )
     static func test(testData: TestData<Input, Expected>) {
-        let output = Solution.candy(
+        let output = Solution().candy(
             testData.input.ratings
         )
         #expect(output == testData.expected.val)
@@ -103,7 +103,7 @@ enum CandyNamespace {
         arguments: testArguments
     )
     static func testOptimised(testData: TestData<Input, Expected>) {
-        let output = Solution.candyOptimised(
+        let output = Solution().candyOptimised(
             testData.input.ratings
         )
         #expect(output == testData.expected.val)

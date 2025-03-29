@@ -2,7 +2,7 @@
 
 import Testing
 
-enum ProductOfArrayExceptSelfNamespace {
+enum ProductOfArrayExceptSelf {
     class Solution {
         func productExceptSelf(_ nums: [Int]) -> [Int] {
             let count = nums.count

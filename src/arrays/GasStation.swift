@@ -2,9 +2,9 @@
 
 import Testing
 
-enum GasStationNamespace {
+enum GasStation {
     class Solution {
-        static func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
+        func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
             let totalGas = gas.reduce(0, +)
             let totalCost = cost.reduce(0, +)
             if totalGas < totalCost {
@@ -58,7 +58,7 @@ enum GasStationNamespace {
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        let output = Solution.canCompleteCircuit(
+        let output = Solution().canCompleteCircuit(
             testData.input.gas,
             testData.input.cost
         )

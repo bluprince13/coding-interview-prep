@@ -2,7 +2,7 @@
 
 import Testing
 
-enum InsertDeleteGetRandomNamespace {
+enum InsertDeleteGetRandom {
     class RandomizedSet {
         var numbers: [Int]
         var numberIndices: [Int: Int]

@@ -2,23 +2,25 @@
 
 import Testing
 
-enum RemoveElementNamespace {
-    static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
-        var i = 0
-        var j = nums.count - 1
+enum RemoveElement {
+    class Solution {
+        func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+            var i = 0
+            var j = nums.count - 1
 
-        while i <= j {
-            // Do the check at i
-            // If jth position also has val, it will be handled in the next iteration
-            if nums[i] == val {
-                nums[i] = nums[j]
-                j -= 1
-            } else {
-                i += 1
+            while i <= j {
+                // Do the check at i
+                // If jth position also has val, it will be handled in the next iteration
+                if nums[i] == val {
+                    nums[i] = nums[j]
+                    j -= 1
+                } else {
+                    i += 1
+                }
             }
+
+            return i
         }
-        
-        return i
     }
 
     struct Input {
@@ -53,7 +55,7 @@ enum RemoveElementNamespace {
     )
     static func test(testData: TestData<Input, Expected>) {
         var nums = testData.input.nums
-        let output = removeElement(
+        let output = Solution().removeElement(
             &nums,
             testData.input.val
         )

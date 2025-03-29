@@ -2,16 +2,18 @@
 
 import Testing
 
-enum BestTimeToBuyAndSellStockNamespace {
-    static func maxProfit(_ prices: [Int]) -> Int {
-        var minPrice = prices[0]
-        var maxProfit = 0
-        for price in prices {
-            minPrice = min(price, minPrice)
-            let profit = price - minPrice
-            maxProfit = max(profit, maxProfit)
+enum BestTimeToBuyAndSellStock {
+    class Solution {
+        func maxProfit(_ prices: [Int]) -> Int {
+            var minPrice = prices[0]
+            var maxProfit = 0
+            for price in prices {
+                minPrice = min(price, minPrice)
+                let profit = price - minPrice
+                maxProfit = max(profit, maxProfit)
+            }
+            return maxProfit
         }
-        return maxProfit
     }
 
     struct Input {
@@ -33,7 +35,7 @@ enum BestTimeToBuyAndSellStockNamespace {
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        let result = maxProfit(testData.input.nums)
+        let result = Solution().maxProfit(testData.input.nums)
         #expect(result == testData.expected.val)
     }
 }

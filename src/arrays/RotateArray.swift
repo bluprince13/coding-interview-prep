@@ -2,7 +2,7 @@
 
 import Testing
 
-enum RotateArrayNamespace {
+enum RotateArray {
     // Intuition
     // Following rotation with any k, it looks like
     // two blocks of elements have just been swapped.
@@ -10,22 +10,25 @@ enum RotateArrayNamespace {
     // Then the solution is a simple reversal to [B, A]
     // However, B and A consists of multiple elements which have now been reversed.
     // Therefore, as a correction, we reverse the contents of B and A.
-    static func rotate(_ nums: inout [Int], _ k: Int) {
-        let numRotations = k % nums.count
 
-        reverse(&nums[...])
-        reverse(&nums[0..<numRotations])
-        reverse(&nums[numRotations...])
-    }
+    class Solution {
+        func rotate(_ nums: inout [Int], _ k: Int) {
+            let numRotations = k % nums.count
 
-    private static func reverse(_ nums: inout ArraySlice<Int>) {
-        var i = nums.startIndex
-        var j = nums.endIndex - 1
+            reverse(&nums[...])
+            reverse(&nums[0 ..< numRotations])
+            reverse(&nums[numRotations...])
+        }
 
-        while i < j {
-            nums.swapAt(i, j)
-            i += 1
-            j -= 1
+        private func reverse(_ nums: inout ArraySlice<Int>) {
+            var i = nums.startIndex
+            var j = nums.endIndex - 1
+
+            while i < j {
+                nums.swapAt(i, j)
+                i += 1
+                j -= 1
+            }
         }
     }
 
@@ -53,14 +56,14 @@ enum RotateArrayNamespace {
             ),
             TestData(
                 id: "3",
-                input: Input(nums: [-1,-100,3,99], k: 2),
-                expected: Expected(nums: [3,99,-1,-100])
+                input: Input(nums: [-1, -100, 3, 99], k: 2),
+                expected: Expected(nums: [3, 99, -1, -100])
             )
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
         var nums = testData.input.nums
-        rotate(
+        Solution().rotate(
             &nums,
             testData.input.k
         )

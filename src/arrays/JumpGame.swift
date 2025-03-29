@@ -2,19 +2,21 @@
 
 import Testing
 
-enum JumpGameNamespace {
-    static func canJump(_ nums: [Int]) -> Bool {
-        var maxReachableIndex = 0
-        let finalIndex = nums.count - 1
+enum JumpGame {
+    class Solution {
+        func canJump(_ nums: [Int]) -> Bool {
+            var maxReachableIndex = 0
+            let finalIndex = nums.count - 1
 
-        for (i, val) in nums.enumerated() where i <= maxReachableIndex {
-            maxReachableIndex = max(maxReachableIndex, i + val)
-            if maxReachableIndex >= finalIndex {
-                return true
+            for (i, val) in nums.enumerated() where i <= maxReachableIndex {
+                maxReachableIndex = max(maxReachableIndex, i + val)
+                if maxReachableIndex >= finalIndex {
+                    return true
+                }
             }
-        }
 
-        return false
+            return false
+        }
     }
 
     struct Input {
@@ -40,13 +42,13 @@ enum JumpGameNamespace {
             ),
             TestData(
                 id: "3",
-                input: Input(nums: [3,0,8,2,0,0,1]),
+                input: Input(nums: [3, 0, 8, 2, 0, 0, 1]),
                 expected: Expected(val: true)
             )
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        let result = canJump(testData.input.nums)
+        let result = Solution().canJump(testData.input.nums)
         #expect(result == testData.expected.val)
     }
 }

@@ -2,7 +2,7 @@
 
 import Testing
 
-enum TrappingRainWaterNamespace {
+enum TrappingRainWater {
     class Solution {
         // Water at any point is determined by:
         // 1 - max height to the left
@@ -10,7 +10,7 @@ enum TrappingRainWaterNamespace {
         // 3 - height at that point
         // We could have a maxLeft and maxRight array, but this would be O(N) space
         // Instead a 2-pointer approach allows O(1) space
-        static func trap(_ height: [Int]) -> Int {
+        func trap(_ height: [Int]) -> Int {
             var i = 0, j = height.count - 1
             var water = 0
             var leftMax = height[i], rightMax = height[j]
@@ -57,7 +57,7 @@ enum TrappingRainWaterNamespace {
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        let output = Solution.trap(
+        let output = Solution().trap(
             testData.input.height
         )
         #expect(output == testData.expected.val)

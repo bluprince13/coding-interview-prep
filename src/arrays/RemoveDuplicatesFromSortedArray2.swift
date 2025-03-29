@@ -2,22 +2,24 @@
 
 import Testing
 
-enum RemoveDuplicatesFromSortedArray2Namespace {
-    static func removeDuplicates(_ nums: inout [Int]) -> Int {
-        if nums.count <= 2 {
-            return nums.count
-        }
-
-        var write = 2
-
-        for read in 2 ..< nums.count {
-            if nums[read] != nums[write - 2] {
-                nums[write] = nums[read]
-                write += 1
+enum RemoveDuplicatesFromSortedArray2 {
+    class Solution {
+        func removeDuplicates(_ nums: inout [Int]) -> Int {
+            if nums.count <= 2 {
+                return nums.count
             }
-        }
 
-        return write
+            var write = 2
+
+            for read in 2 ..< nums.count {
+                if nums[read] != nums[write - 2] {
+                    nums[write] = nums[read]
+                    write += 1
+                }
+            }
+
+            return write
+        }
     }
 
     struct Input {
@@ -46,7 +48,7 @@ enum RemoveDuplicatesFromSortedArray2Namespace {
     )
     static func test(testData: TestData<Input, Expected>) {
         var nums = testData.input.nums
-        let output = removeDuplicates(
+        let output = Solution().removeDuplicates(
             &nums
         )
         #expect(output == testData.expected.val)

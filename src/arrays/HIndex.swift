@@ -2,29 +2,31 @@
 
 import Testing
 
-enum HIndexNamespace {
-    static func hIndex(_ citations: [Int]) -> Int {
-        let numberOfPapers = citations.count
+enum HIndex {
+    class Solution {
+        func hIndex(_ citations: [Int]) -> Int {
+            let numberOfPapers = citations.count
 
-        // Get the frequency for each number of citations
-        // hIndex must be <= numberOfPapers
-        // If any paper has more citations than numberOfPapers
-        // Then we put that in the last frequency bucket
-        var frequencies = Array(repeating: 0, count: numberOfPapers + 1)
-        for citation in citations {
-            let index = min(citation, numberOfPapers)
-            frequencies[index] += 1
-        }
-
-        var cumulativeFrequency = 0
-        for citation in (0 ..< frequencies.count).reversed() {
-            let frequencyOfCitation = frequencies[citation]
-            cumulativeFrequency += frequencyOfCitation
-            if cumulativeFrequency >= citation {
-                return citation
+            // Get the frequency for each number of citations
+            // hIndex must be <= numberOfPapers
+            // If any paper has more citations than numberOfPapers
+            // Then we put that in the last frequency bucket
+            var frequencies = Array(repeating: 0, count: numberOfPapers + 1)
+            for citation in citations {
+                let index = min(citation, numberOfPapers)
+                frequencies[index] += 1
             }
+
+            var cumulativeFrequency = 0
+            for citation in (0 ..< frequencies.count).reversed() {
+                let frequencyOfCitation = frequencies[citation]
+                cumulativeFrequency += frequencyOfCitation
+                if cumulativeFrequency >= citation {
+                    return citation
+                }
+            }
+            return 0
         }
-        return 0
     }
 
     struct Input {
@@ -51,7 +53,7 @@ enum HIndexNamespace {
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
-        let result = hIndex(testData.input.nums)
+        let result = Solution().hIndex(testData.input.nums)
         #expect(result == testData.expected.val)
     }
 }
