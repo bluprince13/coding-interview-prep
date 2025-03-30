@@ -17,7 +17,6 @@ enum RomanToInteger {
         // Characters have a negative value only if they come out of order
         // e.g. in IV, I is less than V and therefore its value is -1 rather than 1
         func romanToInt(_ s: String) -> Int {
-            var i = 0
             var totalValue = 0
 
             // Operate on an array for simplicity
