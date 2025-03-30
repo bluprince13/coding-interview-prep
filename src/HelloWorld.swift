@@ -23,7 +23,7 @@ enum HelloWorld {
     }
 
     @Test(
-        "Given different payment type, should display correct alert",
+        "HelloWorld",
         arguments: [
             TestData(
                 id: "boy name",
