@@ -7,14 +7,14 @@ let project = Project(
         // Otherwise, tuist test will fail with `We couldn't find a build configuration of variant 'debug' for caching
         .target(
             name: "CodingInterviewPrep",
-            destinations: .macOS,
+            destinations: .iOS,
             product: .app,
             bundleId: "io.tuist.CodingInterviewPrep",
             sources: [""]
         ),
         .target(
             name: "CodingInterviewPrepTests",
-            destinations: .macOS,
+            destinations: .iOS,
             product: .unitTests,
             bundleId: "io.tuist.CodingInterviewPrepTests",
             sources: ["src/**"]
