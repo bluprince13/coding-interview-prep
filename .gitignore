@@ -54,3 +54,7 @@ target
 node_modules
 .netlify
 .vercel
+
+# Swift
+.build
+buildServer.json
