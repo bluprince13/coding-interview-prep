@@ -33,7 +33,7 @@ enum LengthOfLastWord {
                 id: "2",
                 input: Input(s: "   fly me   to   the moon  "),
                 expected: Expected(val: 4)
-            )
+            ),
         ]
     )
     static func test(testData: TestData<Input, Expected>) {
